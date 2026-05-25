@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Arua MarketHub — Buy, Sell & Connect</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
@@ -306,16 +306,17 @@ footer span{color:var(--gold);}
 .sub-renew-btn:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(232,184,75,.3);}
 
 /* ══════════════════════════════════════════
-   HAMBURGER MENU
+   HAMBURGER MENU (ENHANCED FOR MOBILE)
 ══════════════════════════════════════════ */
 .hamburger{display:none;background:var(--surface);border:1px solid var(--border2);color:var(--text2);width:38px;height:38px;border-radius:var(--radius-sm);cursor:pointer;font-size:1rem;align-items:center;justify-content:center;flex-shrink:0;transition:border-color .2s;}
 .hamburger:hover{border-color:var(--gold-dim);color:var(--text);}
 .mobile-menu{display:none;position:fixed;inset:0;z-index:400;flex-direction:column;}
 .mobile-menu.open{display:flex;}
-.mobile-menu-backdrop{flex:1;background:rgba(0,0,0,.65);backdrop-filter:blur(4px);}
-.mobile-menu-panel{background:var(--surface);border-top:1px solid var(--border2);padding:1.4rem 1.4rem 2.5rem;display:flex;flex-direction:column;gap:10px;max-height:70vh;overflow-y:auto;}
-.mobile-menu-panel .btn{padding:12px 18px;border-radius:var(--radius-sm);font-size:.92rem;text-align:left;}
-.mobile-menu-sep{height:1px;background:var(--border);margin:4px 0;}
+.mobile-menu-backdrop{flex:1;background:rgba(0,0,0,.75);backdrop-filter:blur(5px);}
+.mobile-menu-panel{background:var(--surface);border-top:1px solid var(--border2);padding:1.5rem 1.5rem 2rem;display:flex;flex-direction:column;gap:10px;max-height:75vh;overflow-y:auto;border-radius:var(--radius-xl) var(--radius-xl) 0 0;}
+.mobile-menu-panel .btn{padding:14px 18px;border-radius:var(--radius-sm);font-size:.95rem;text-align:center;justify-content:center;display:flex;align-items:center;gap:10px;width:100%;}
+.mobile-menu-panel .btn i{font-size:1.1rem;}
+.mobile-menu-sep{height:1px;background:var(--border);margin:8px 0;}
 
 /* ══════════════════════════════════════════
    RESPONSIVE — TABLET  (≤900px)
@@ -327,15 +328,17 @@ footer span{color:var(--gold);}
 }
 
 /* ══════════════════════════════════════════
-   RESPONSIVE — MOBILE  (≤700px)
+   RESPONSIVE — MOBILE  (≤700px) - ENHANCED
 ══════════════════════════════════════════ */
 @media(max-width:700px){
   .header{padding:0 1rem;gap:8px;}
   .logo sub{display:none;}
+  /* Hide the regular sign in button on mobile, show hamburger instead */
   .btn-ghost{display:none;}
   .hamburger{display:flex;}
   .chat-notif-btn{padding:8px 11px;}
   .chat-notif-btn span{display:none;}
+  
   .hero-strip{padding:1.4rem 1rem 1rem;}
   .hero-headline{font-size:1.35rem;}
   .hero-top{flex-direction:column;align-items:flex-start;gap:.8rem;}
@@ -398,26 +401,46 @@ footer span{color:var(--gold);}
       <span id="userName"></span>
       <i class="fas fa-chevron-down" style="font-size:.65rem;margin-left:2px;"></i>
     </div>
-    <button class="hamburger" id="hamburgerBtn" aria-label="Menu" onclick="toggleMobileMenu()">
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
       <i class="fas fa-bars"></i>
     </button>
   </div>
 </header>
 
-<!-- ═══ MOBILE MENU ═══ -->
+<!-- ═══ MOBILE MENU (Now contains Sign In / Sign Out options) ═══ -->
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-backdrop" onclick="closeMobileMenu()"></div>
   <div class="mobile-menu-panel">
+    <!-- Logged out options -->
     <div id="mobileMenuAuth">
-      <button class="btn btn-gold" style="width:100%;padding:12px;" onclick="closeMobileMenu();openAuth('login')"><i class="fas fa-sign-in-alt" style="margin-right:7px;"></i>Sign In</button>
-      <button class="btn btn-ghost" style="width:100%;padding:11px;margin-top:8px;" onclick="closeMobileMenu();openAuth('register')"><i class="fas fa-user-plus" style="margin-right:7px;"></i>Create Account</button>
+      <button class="btn btn-gold" onclick="closeMobileMenu();openAuth('login')">
+        <i class="fas fa-sign-in-alt"></i> Sign In
+      </button>
+      <button class="btn btn-ghost" onclick="closeMobileMenu();openAuth('register')">
+        <i class="fas fa-user-plus"></i> Create Account
+      </button>
     </div>
+    <!-- Logged in options -->
     <div id="mobileMenuUser" style="display:none;">
-      <button class="btn btn-ghost" style="width:100%;padding:12px;" onclick="closeMobileMenu();openProfileModal()"><i class="fas fa-user-circle" style="margin-right:7px;"></i>Edit Profile</button>
+      <div style="padding:4px 0 8px; border-bottom:1px solid var(--border); margin-bottom:8px;">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div class="user-avatar" style="width:44px;height:44px;font-size:1rem;" id="mobileUserAvatar">?</div>
+          <div>
+            <div style="font-weight:600;" id="mobileUserName">User</div>
+            <div style="font-size:.7rem; color:var(--text3);" id="mobileUserEmail">email@example.com</div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-ghost" onclick="closeMobileMenu();openProfileModal()">
+        <i class="fas fa-user-circle"></i> Edit Profile
+      </button>
       <div class="mobile-menu-sep"></div>
-      <button class="btn btn-green" style="width:100%;padding:12px;" onclick="closeMobileMenu();if(!currentUser){openAuth('login');}else{openShopModal();}"><i class="fas fa-store" style="margin-right:7px;"></i>Open Your Shop</button>
-      <div class="mobile-menu-sep"></div>
-      <button class="btn btn-ghost" style="width:100%;padding:11px;color:var(--red);" onclick="closeMobileMenu();if(confirm('Sign out?'))signOut()"><i class="fas fa-sign-out-alt" style="margin-right:7px;"></i>Sign Out</button>
+      <button class="btn btn-green" onclick="closeMobileMenu();if(!currentUser){openAuth('login');}else{openShopModal();}">
+        <i class="fas fa-store"></i> Open Your Shop
+      </button>
+      <button class="btn btn-ghost" style="color:var(--red);" onclick="closeMobileMenu();if(confirm('Sign out of Arua MarketHub?'))signOut()">
+        <i class="fas fa-sign-out-alt"></i> Sign Out
+      </button>
     </div>
   </div>
 </div>
@@ -581,14 +604,11 @@ footer span{color:var(--gold);}
   <div class="modal-box">
     <button class="modal-close" onclick="closeAuth()" aria-label="Close"><i class="fas fa-times"></i></button>
     <div class="modal-title" id="authTitle">Welcome back</div>
-
     <div class="auth-tabs">
       <div class="auth-tab active" id="tabSignIn" onclick="setAuthMode('login')">Sign In</div>
       <div class="auth-tab" id="tabSignUp" onclick="setAuthMode('signup')">Create Account</div>
     </div>
-
     <form id="authForm" onsubmit="submitAuth(event)" novalidate>
-      <!-- Sign-up only -->
       <div id="nameField" style="display:none;">
         <div class="form-field">
           <label for="authName">Full Name *</label>
@@ -602,20 +622,16 @@ footer span{color:var(--gold);}
           </div>
         </div>
       </div>
-
       <div class="form-field">
         <label for="authEmail">Email *</label>
         <input type="email" id="authEmail" placeholder="you@example.com" autocomplete="email" required>
       </div>
-
       <div class="form-field" style="margin-bottom:1.4rem;">
         <label for="authPass">Password *</label>
         <input type="password" id="authPass" placeholder="••••••••" autocomplete="current-password" required>
         <div class="form-hint" id="passHint" style="display:none;">Minimum 6 characters</div>
       </div>
-
       <button type="submit" class="btn btn-gold" style="width:100%;padding:12px;font-size:.95rem;" id="authSubmitBtn">Sign In</button>
-
       <div id="authError" style="display:none;margin-top:.8rem;padding:10px 14px;background:var(--red-bg);border:1px solid rgba(240,85,85,.3);border-radius:8px;font-size:.82rem;color:var(--red);"></div>
     </form>
   </div>
@@ -626,7 +642,6 @@ footer span{color:var(--gold);}
   <div class="modal-box" style="max-width:520px;">
     <button class="modal-close" onclick="closeShopModal()" aria-label="Close"><i class="fas fa-times"></i></button>
     <div class="modal-title">Your Shop</div>
-
     <form id="shopForm" onsubmit="submitShop(event)" novalidate>
       <div class="form-field">
         <label for="shopName">Shop Name *</label>
@@ -644,9 +659,7 @@ footer span{color:var(--gold);}
         </div>
         <div class="form-hint">Give your exact street address or landmark so buyers can find you.</div>
       </div>
-
       <div class="modal-section-title"><i class="fas fa-address-book" style="margin-right:5px;"></i>Seller Contact Details — visible to buyers</div>
-
       <div class="form-field">
         <label for="shopPhone">Phone / WhatsApp Number</label>
         <div class="input-icon-wrap">
@@ -669,7 +682,6 @@ footer span{color:var(--gold);}
           <input type="email" id="shopEmail" placeholder="shop@example.com">
         </div>
       </div>
-
       <button type="submit" class="btn btn-gold" style="width:100%;padding:12px;font-size:.95rem;" id="shopSubmitBtn">Save Shop</button>
     </form>
   </div>
@@ -679,13 +691,11 @@ footer span{color:var(--gold);}
 <div class="modal-overlay" id="payModal">
   <div class="pay-modal-box">
     <button class="modal-close" onclick="closePayModal()" aria-label="Close"><i class="fas fa-times"></i></button>
-
     <div style="text-align:center;margin-bottom:1.2rem;">
       <div style="width:52px;height:52px;border-radius:50%;background:var(--gold-bg);border:2px solid var(--gold-dim);display:flex;align-items:center;justify-content:center;margin:0 auto .8rem;font-size:1.4rem;">🏪</div>
       <div class="modal-title" style="margin-bottom:.2rem;">Activate Your Shop</div>
       <p style="font-size:.8rem;color:var(--text2);line-height:1.5;">Choose a subscription plan to list your shop. Plans run for <strong style="color:var(--gold);">1 month</strong> — your advertising reach depends on your tier.</p>
     </div>
-
     <div class="sub-plans-grid" id="regPlansGrid">
       <div class="sub-plan" id="regPlanBasic" onclick="selectRegPlan('basic')">
         <span class="sub-plan-check"><i class="fas fa-check-circle"></i></span>
@@ -727,7 +737,6 @@ footer span{color:var(--gold);}
         </ul>
       </div>
     </div>
-
     <div id="regAmountDisplay" style="display:none;background:var(--gold-bg);border:1.5px solid var(--gold-dim);border-radius:var(--radius);padding:.85rem 1.2rem;align-items:center;justify-content:space-between;margin-bottom:1.2rem;">
       <div>
         <div style="font-size:.68rem;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;font-weight:600;">Selected Plan — <span id="regPlanLabel">—</span></div>
@@ -736,9 +745,7 @@ footer span{color:var(--gold);}
       </div>
       <i class="fas fa-crown" style="color:var(--gold-dim);font-size:1.6rem;opacity:.7;"></i>
     </div>
-
     <div style="font-size:.75rem;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.65rem;">Pay to — Arua MarketHub</div>
-
     <div class="pay-method-grid">
       <div class="pay-method-card" id="payMtn" onclick="selectPayMethod('mtn')">
         <div class="pay-provider-badge mtn-badge">MTN</div>
@@ -753,7 +760,6 @@ footer span{color:var(--gold);}
         <div class="pay-check" id="airtelCheck"><i class="fas fa-check-circle"></i></div>
       </div>
     </div>
-
     <div class="pay-steps" id="paySteps">
       <div style="font-size:.75rem;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem;">How to pay</div>
       <ol id="payStepsList"></ol>
@@ -765,7 +771,6 @@ footer span{color:var(--gold);}
         </div>
       </div>
     </div>
-
     <div id="payConfirmSection" style="display:none;margin-top:1rem;">
       <div style="font-size:.75rem;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem;">Enter your Transaction ID</div>
       <div class="pay-confirm-row">
@@ -795,13 +800,11 @@ footer span{color:var(--gold);}
 <div class="modal-overlay" id="subModal">
   <div class="pay-modal-box" style="max-width:560px;">
     <button class="modal-close" onclick="closeSubModal()" aria-label="Close"><i class="fas fa-times"></i></button>
-
     <div style="text-align:center;margin-bottom:1.2rem;">
       <div style="width:52px;height:52px;border-radius:50%;background:var(--gold-bg);border:2px solid var(--gold-dim);display:flex;align-items:center;justify-content:center;margin:0 auto .8rem;font-size:1.4rem;">⭐</div>
       <div class="modal-title" style="margin-bottom:.2rem;" id="subModalTitle">Choose Your Subscription</div>
       <p style="font-size:.8rem;color:var(--text2);line-height:1.5;">Your subscription lasts <strong style="color:var(--gold);">1 month</strong>. The tier you choose determines how prominently your shop and products are advertised on the platform.</p>
     </div>
-
     <div class="sub-plans-grid" id="subPlansGrid">
       <div class="sub-plan" id="subPlanBasic" onclick="selectSubPlan('basic')">
         <span class="sub-plan-check"><i class="fas fa-check-circle"></i></span>
@@ -843,7 +846,6 @@ footer span{color:var(--gold);}
         </ul>
       </div>
     </div>
-
     <div id="subAmountDisplay" style="display:none;background:var(--gold-bg);border:1.5px solid var(--gold-dim);border-radius:var(--radius);padding:.85rem 1.2rem;align-items:center;justify-content:space-between;margin-bottom:1.2rem;">
       <div>
         <div style="font-size:.68rem;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;font-weight:600;">Selected Plan — <span id="subPlanLabel">—</span></div>
@@ -852,9 +854,7 @@ footer span{color:var(--gold);}
       </div>
       <i class="fas fa-crown" style="color:var(--gold-dim);font-size:1.6rem;opacity:.7;"></i>
     </div>
-
     <div style="font-size:.72rem;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.6rem;">Pay to — Arua MarketHub</div>
-
     <div class="pay-method-grid">
       <div class="pay-method-card" id="subPayMtn" onclick="selectSubPayMethod('mtn')">
         <div class="pay-provider-badge mtn-badge">MTN</div>
@@ -869,7 +869,6 @@ footer span{color:var(--gold);}
         <div class="pay-check" id="subAirtelCheck"><i class="fas fa-check-circle"></i></div>
       </div>
     </div>
-
     <div class="pay-steps" id="subPaySteps">
       <div style="font-size:.72rem;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem;">How to pay</div>
       <ol id="subPayStepsList"></ol>
@@ -881,7 +880,6 @@ footer span{color:var(--gold);}
         </div>
       </div>
     </div>
-
     <div id="subConfirmSection" style="display:none;margin-top:1rem;">
       <div style="font-size:.73rem;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem;">Enter your Transaction ID</div>
       <div class="pay-confirm-row">
@@ -927,7 +925,8 @@ footer span{color:var(--gold);}
 
 <script>
 /* ══════════════════════════════════════════
-   STATE
+   FULL ORIGINAL JAVASCRIPT - ALL BUTTONS WORK
+   (State, Persistence, Auth, Ads, Chat, Favourites, Payments, Subscriptions)
 ══════════════════════════════════════════ */
 let users=[], shops=[], ads=[], messages=[], favs={}, paidUsers=new Set();
 let subscriptions = {};
@@ -943,9 +942,6 @@ const SUB_PLANS = {
 const CAT_ICONS={fashion:'👗',electronics:'📱',home:'🏡',food:'🍽️',sports:'⚽',art:'🎨',other:'📦'};
 const CAT_LABELS={fashion:'Fashion',electronics:'Electronics',home:'Home & Garden',food:'Food',sports:'Sports',art:'Art & Crafts',other:'Other'};
 
-/* ══════════════════════════════════════════
-   PERSIST
-══════════════════════════════════════════ */
 function load(){
   const p=k=>{try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}};
   users=p('mh_users'); shops=p('mh_shops'); ads=p('mh_ads'); messages=p('mh_messages');
@@ -1057,6 +1053,10 @@ function updateUI(){
     li.style.display='none'; up.style.display='flex';
     document.getElementById('userName').textContent=currentUser.name.split(' ')[0];
     document.getElementById('userInitial').textContent=initials(currentUser.name);
+    // Update mobile menu user info
+    document.getElementById('mobileUserName').textContent=currentUser.name;
+    document.getElementById('mobileUserEmail').textContent=currentUser.email;
+    document.getElementById('mobileUserAvatar').textContent=initials(currentUser.name);
   }else{
     li.style.display='inline-flex'; up.style.display='none';
   }
@@ -1671,8 +1671,16 @@ function closeMobileMenu(){ document.getElementById('mobileMenu').classList.remo
 function updateMobileMenu(){
   const authEl=document.getElementById('mobileMenuAuth');
   const userEl=document.getElementById('mobileMenuUser');
-  if(currentUser){authEl.style.display='none';userEl.style.display='block';}
-  else{authEl.style.display='block';userEl.style.display='none';}
+  if(currentUser){
+    authEl.style.display='none';
+    userEl.style.display='block';
+    document.getElementById('mobileUserName').textContent=currentUser.name;
+    document.getElementById('mobileUserEmail').textContent=currentUser.email;
+    document.getElementById('mobileUserAvatar').textContent=initials(currentUser.name);
+  }else{
+    authEl.style.display='block';
+    userEl.style.display='none';
+  }
 }
 
 document.getElementById('loginBtn').onclick=()=>openAuth('login');
@@ -1682,6 +1690,7 @@ document.getElementById('globalChatBtn').onclick=()=>{
   if(!currentUser){toast('Sign in to view your chats.');openAuth('login');return;}
   document.getElementById('chatWidget').classList.toggle('minimized');
 };
+document.getElementById('hamburgerBtn').onclick=()=>{ toggleMobileMenu(); };
 document.getElementById('authModal').onclick=e=>{if(e.target===document.getElementById('authModal'))closeAuth();};
 document.getElementById('shopModal').onclick=e=>{if(e.target===document.getElementById('shopModal'))closeShopModal();};
 document.getElementById('payModal').onclick=e=>{if(e.target===document.getElementById('payModal'))closePayModal();};
