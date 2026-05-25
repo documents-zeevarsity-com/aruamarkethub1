@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Arua MarketHub — Buy, Sell & Connect</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
@@ -306,36 +306,39 @@ footer span{color:var(--gold);}
 .sub-renew-btn:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(232,184,75,.3);}
 
 /* ══════════════════════════════════════════
-   HAMBURGER MENU & RESPONSIVE
+   HAMBURGER MENU
 ══════════════════════════════════════════ */
 .hamburger{display:none;background:var(--surface);border:1px solid var(--border2);color:var(--text2);width:38px;height:38px;border-radius:var(--radius-sm);cursor:pointer;font-size:1rem;align-items:center;justify-content:center;flex-shrink:0;transition:border-color .2s;}
 .hamburger:hover{border-color:var(--gold-dim);color:var(--text);}
 .mobile-menu{display:none;position:fixed;inset:0;z-index:400;flex-direction:column;}
 .mobile-menu.open{display:flex;}
-.mobile-menu-backdrop{flex:1;background:rgba(0,0,0,.75);backdrop-filter:blur(5px);}
-.mobile-menu-panel{background:var(--surface);border-top:1px solid var(--border2);padding:1.5rem 1.5rem 2rem;display:flex;flex-direction:column;gap:12px;max-height:75vh;overflow-y:auto;border-radius:var(--radius-xl) var(--radius-xl) 0 0;}
-.mobile-menu-panel .btn{padding:14px 18px;border-radius:var(--radius-sm);font-size:.95rem;text-align:center;justify-content:center;display:flex;align-items:center;gap:10px;width:100%;}
-.mobile-menu-panel .btn i{font-size:1.1rem;}
-.mobile-menu-sep{height:1px;background:var(--border);margin:8px 0;}
+.mobile-menu-backdrop{flex:1;background:rgba(0,0,0,.65);backdrop-filter:blur(4px);}
+.mobile-menu-panel{background:var(--surface);border-top:1px solid var(--border2);padding:1.4rem 1.4rem 2.5rem;display:flex;flex-direction:column;gap:10px;max-height:70vh;overflow-y:auto;}
+.mobile-menu-panel .btn{padding:12px 18px;border-radius:var(--radius-sm);font-size:.92rem;text-align:left;}
+.mobile-menu-sep{height:1px;background:var(--border);margin:4px 0;}
 
-/* RESPONSIVE — TABLET (≤900px) */
+/* ══════════════════════════════════════════
+   RESPONSIVE — TABLET  (≤900px)
+══════════════════════════════════════════ */
 @media(max-width:900px){
   .products-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));}
   .sub-plans-grid{grid-template-columns:1fr 1fr;}
   .hero-headline{font-size:1.65rem;}
 }
 
-/* RESPONSIVE — MOBILE (≤700px) - Remove desktop auth elements */
+/* ══════════════════════════════════════════
+   RESPONSIVE — MOBILE  (≤700px)
+══════════════════════════════════════════ */
 @media(max-width:700px){
+  /* Header */
   .header{padding:0 1rem;gap:8px;}
   .logo sub{display:none;}
-  /* HIDE desktop Sign In button and User Pill on mobile - only hamburger menu remains */
   .btn-ghost{display:none;}
-  .user-pill{display:none !important;}
   .hamburger{display:flex;}
   .chat-notif-btn{padding:8px 11px;}
   .chat-notif-btn span{display:none;}
-  
+
+  /* Hero */
   .hero-strip{padding:1.4rem 1rem 1rem;}
   .hero-headline{font-size:1.35rem;}
   .hero-top{flex-direction:column;align-items:flex-start;gap:.8rem;}
@@ -345,11 +348,19 @@ footer span{color:var(--gold);}
   .sort-select{width:100%;padding:10px 14px;}
   .cat-filter{gap:6px;}
   .cat-pill{font-size:.75rem;padding:5px 12px;}
+
+  /* Tabs */
   .tabs-bar{padding:.8rem 1rem 0;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
   .tabs-bar::-webkit-scrollbar{display:none;}
   .tab{font-size:.8rem;padding:8px 14px;white-space:nowrap;}
+
+  /* Container */
   .container{padding:1.2rem 1rem 3.5rem;}
+
+  /* Grid — one full-width card per row */
   .products-grid{grid-template-columns:1fr;gap:1rem;}
+
+  /* Cards — full-width vertical, one per row */
   .card{display:flex;flex-direction:column;}
   .card-thumb{width:100%;height:180px;font-size:3.2rem;border-radius:var(--radius-xl) var(--radius-xl) 0 0;}
   .card-body{padding:1rem 1.1rem 1.1rem;}
@@ -359,17 +370,25 @@ footer span{color:var(--gold);}
   .card-actions{flex-direction:row;gap:6px;flex-wrap:nowrap;}
   .card-btn{flex:1;text-align:center;}
   .contact-reveal{border-radius:0 0 var(--radius-xl) var(--radius-xl);}
+
+  /* Forms */
   .form-grid{grid-template-columns:1fr;}
   .panel-card{padding:1.4rem 1rem;}
+
+  /* Shop profile */
   .shop-profile-card{padding:1.2rem;gap:1rem;}
   .shop-actions{margin-left:0;width:100%;}
   .shop-actions .btn{width:100%;text-align:center;margin-top:4px;}
+
+  /* Modals */
   .modal-box{padding:1.5rem 1.2rem;width:94%;border-radius:var(--radius);}
   .pay-modal-box{padding:1.5rem 1.2rem;width:94%;border-radius:var(--radius);}
   .profile-modal-box{padding:1.5rem 1.2rem;width:94%;border-radius:var(--radius);}
   .confirm-modal-box{padding:1.5rem 1.2rem;width:94%;border-radius:var(--radius);}
   .pay-method-grid{grid-template-columns:1fr 1fr;}
   .sub-plans-grid{grid-template-columns:1fr;}
+
+  /* Chat widget — full-width bottom sheet on mobile */
   .chat-widget{
     width:100%;right:0;bottom:0;
     border-radius:var(--radius-xl) var(--radius-xl) 0 0;
@@ -378,14 +397,18 @@ footer span{color:var(--gold);}
     max-height:75dvh;
   }
   .chat-widget.minimized{height:60px;max-height:60px;}
+
+  /* Toast — keep above chat */
   .toast{bottom:80px;font-size:.8rem;padding:9px 18px;}
+
+  /* Footer */
   footer{padding:1.5rem 1rem;}
 }
 </style>
 </head>
 <body>
 
-<!-- ═══ HEADER - Only chat & hamburger on mobile ═══ -->
+<!-- ═══ HEADER ═══ -->
 <header class="header">
   <div class="logo" onclick="setPanel('browse')">Arua Market<span>Hub</span><sub>Connect &amp; Shop</sub></div>
   <div class="header-right">
@@ -398,46 +421,26 @@ footer span{color:var(--gold);}
       <span id="userName"></span>
       <i class="fas fa-chevron-down" style="font-size:.65rem;margin-left:2px;"></i>
     </div>
-    <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menu" onclick="toggleMobileMenu()">
       <i class="fas fa-bars"></i>
     </button>
   </div>
 </header>
 
-<!-- ═══ MOBILE MENU (Complete auth & profile management) ═══ -->
+<!-- ═══ MOBILE MENU ═══ -->
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-backdrop" onclick="closeMobileMenu()"></div>
   <div class="mobile-menu-panel">
-    <!-- Logged out options -->
     <div id="mobileMenuAuth">
-      <button class="btn btn-gold" onclick="closeMobileMenu();openAuth('login')">
-        <i class="fas fa-sign-in-alt"></i> Sign In
-      </button>
-      <button class="btn btn-ghost" onclick="closeMobileMenu();openAuth('register')">
-        <i class="fas fa-user-plus"></i> Create Account
-      </button>
+      <button class="btn btn-gold" style="width:100%;padding:12px;" onclick="closeMobileMenu();openAuth('login')"><i class="fas fa-sign-in-alt" style="margin-right:7px;"></i>Sign In</button>
+      <button class="btn btn-ghost" style="width:100%;padding:11px;margin-top:8px;" onclick="closeMobileMenu();openAuth('register')"><i class="fas fa-user-plus" style="margin-right:7px;"></i>Create Account</button>
     </div>
-    <!-- Logged in options -->
     <div id="mobileMenuUser" style="display:none;">
-      <div style="padding:8px 0 12px; border-bottom:1px solid var(--border); margin-bottom:8px;">
-        <div style="display:flex; align-items:center; gap:12px;">
-          <div class="user-avatar" style="width:44px;height:44px;font-size:1rem;" id="mobileUserAvatar">?</div>
-          <div>
-            <div style="font-weight:600; font-size:1rem;" id="mobileUserName">User</div>
-            <div style="font-size:.7rem; color:var(--text3);" id="mobileUserEmail">email@example.com</div>
-          </div>
-        </div>
-      </div>
-      <button class="btn btn-ghost" onclick="closeMobileMenu();openProfileModal()">
-        <i class="fas fa-user-circle"></i> Edit Profile
-      </button>
+      <button class="btn btn-ghost" style="width:100%;padding:12px;" onclick="closeMobileMenu();openProfileModal()"><i class="fas fa-user-circle" style="margin-right:7px;"></i>Edit Profile</button>
       <div class="mobile-menu-sep"></div>
-      <button class="btn btn-green" onclick="closeMobileMenu();if(!currentUser){openAuth('login');}else{openShopModal();}">
-        <i class="fas fa-store"></i> Open Your Shop
-      </button>
-      <button class="btn btn-ghost" style="color:var(--red);" onclick="closeMobileMenu();if(confirm('Sign out of Arua MarketHub?'))signOut()">
-        <i class="fas fa-sign-out-alt"></i> Sign Out
-      </button>
+      <button class="btn btn-green" style="width:100%;padding:12px;" onclick="closeMobileMenu();if(!currentUser){openAuth('login');}else{openShopModal();}"><i class="fas fa-store" style="margin-right:7px;"></i>Open Your Shop</button>
+      <div class="mobile-menu-sep"></div>
+      <button class="btn btn-ghost" style="width:100%;padding:11px;color:var(--red);" onclick="closeMobileMenu();if(confirm('Sign out?'))signOut()"><i class="fas fa-sign-out-alt" style="margin-right:7px;"></i>Sign Out</button>
     </div>
   </div>
 </div>
@@ -488,6 +491,8 @@ footer span{color:var(--gold);}
 
 <!-- ═══ MAIN ═══ -->
 <div class="container">
+
+  <!-- BROWSE -->
   <div id="panelBrowse">
     <div class="grid-header">
       <span class="grid-label" id="gridLabel">All Listings</span>
@@ -495,6 +500,8 @@ footer span{color:var(--gold);}
     </div>
     <div class="products-grid" id="adsGrid"></div>
   </div>
+
+  <!-- FAVOURITES -->
   <div id="panelFavs" style="display:none;">
     <div class="grid-header">
       <span class="grid-label">❤️ Favourites</span>
@@ -502,6 +509,8 @@ footer span{color:var(--gold);}
     </div>
     <div class="products-grid" id="favsGrid"></div>
   </div>
+
+  <!-- MY SHOP -->
   <div id="panelMyShop" style="display:none;">
     <div id="shopProfileArea"></div>
     <div class="grid-header">
@@ -510,47 +519,469 @@ footer span{color:var(--gold);}
     </div>
     <div class="products-grid" id="myAdsGrid"></div>
   </div>
+
+  <!-- POST AD -->
   <div id="panelPost" style="display:none;">
     <div class="panel-card">
       <h3><i class="fas fa-tags" style="color:var(--gold);margin-right:8px;"></i>Post a New Listing</h3>
       <form id="adForm" onsubmit="submitAd(event)">
         <div class="form-grid">
-          <div class="form-group full"><label>Product Title *</label><input type="text" id="adTitle" placeholder="e.g. Vintage Denim Jacket" required></div>
-          <div class="form-group"><label>Price (UGX) *</label><input type="number" id="adPrice" placeholder="e.g. 50000" min="1" step="1" required></div>
-          <div class="form-group"><label>Category</label><select id="adCat"><option value="other">Other</option><option value="fashion">Fashion</option><option value="electronics">Electronics</option><option value="home">Home &amp; Garden</option><option value="food">Food</option><option value="sports">Sports</option><option value="art">Art &amp; Crafts</option></select></div>
-          <div class="form-group full"><label>Description</label><textarea id="adDesc" placeholder="Describe your product — condition, size, colour…"></textarea></div>
-          <div class="form-group full"><label>Product Photo</label><div class="img-upload-area" id="adImgArea"><input type="file" id="adImgFile" accept="image/*" onchange="handleAdImg(event)"><i class="fas fa-camera"></i><p><strong>Click to upload a photo</strong><br>JPG, PNG, WEBP — max 5 MB</p></div></div>
+          <div class="form-group full">
+            <label>Product Title *</label>
+            <input type="text" id="adTitle" placeholder="e.g. Vintage Denim Jacket" required>
+          </div>
+          <div class="form-group">
+            <label>Price (UGX) *</label>
+            <input type="number" id="adPrice" placeholder="e.g. 50000" min="1" step="1" required>
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <select id="adCat">
+              <option value="other">Other</option>
+              <option value="fashion">Fashion</option>
+              <option value="electronics">Electronics</option>
+              <option value="home">Home &amp; Garden</option>
+              <option value="food">Food</option>
+              <option value="sports">Sports</option>
+              <option value="art">Art &amp; Crafts</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label>Description</label>
+            <textarea id="adDesc" placeholder="Describe your product — condition, size, colour…"></textarea>
+          </div>
+          <div class="form-group full">
+            <label>Product Photo</label>
+            <div class="img-upload-area" id="adImgArea">
+              <input type="file" id="adImgFile" accept="image/*" onchange="handleAdImg(event)">
+              <i class="fas fa-camera"></i>
+              <p><strong>Click to upload a photo</strong><br>JPG, PNG, WEBP — max 5 MB</p>
+            </div>
+          </div>
         </div>
-        <div class="submit-row"><button type="submit" class="btn btn-gold" style="width:100%;padding:12px;font-size:.95rem;">Publish Listing</button></div>
+        <div class="submit-row">
+          <button type="submit" class="btn btn-gold" style="width:100%;padding:12px;font-size:.95rem;">Publish Listing</button>
+        </div>
       </form>
     </div>
   </div>
-</div>
+
+</div><!-- /container -->
+
 <footer>&copy; 2026 <span>Arua MarketHub</span> — Connect, Buy &amp; Sell</footer>
 
-<!-- All modals (auth, profile, shop, payment, subscription, confirm) remain identical to original -->
-<div class="modal-overlay" id="profileModal"><div class="profile-modal-box"><button class="modal-close" onclick="closeProfileModal()"><i class="fas fa-times"></i></button><div class="profile-avatar-big" id="profileAvatarBig">?</div><div class="modal-title" style="text-align:center;">Edit Your Profile</div><form id="profileForm" onsubmit="submitProfile(event)"><div class="form-field"><label>Full Name *</label><input type="text" id="profileName" required></div><div class="form-field"><label>Email *</label><input type="email" id="profileEmail" required></div><div class="form-field"><label>Phone</label><input type="tel" id="profilePhone" placeholder="+256..."></div><div id="profileError" style="display:none;background:var(--red-bg);padding:10px;border-radius:8px;margin-bottom:1rem;"></div><button type="submit" class="btn btn-gold" style="width:100%;"><i class="fas fa-save"></i> Save</button><button type="button" class="btn btn-ghost" style="width:100%;margin-top:8px;" onclick="if(confirm('Sign out?'))signOut()"><i class="fas fa-sign-out-alt"></i> Sign Out</button></form></div></div>
-<div class="modal-overlay" id="authModal"><div class="modal-box"><button class="modal-close" onclick="closeAuth()"><i class="fas fa-times"></i></button><div class="modal-title" id="authTitle">Welcome</div><div class="auth-tabs"><div class="auth-tab active" onclick="setAuthMode('login')">Sign In</div><div class="auth-tab" onclick="setAuthMode('signup')">Sign Up</div></div><form id="authForm" onsubmit="submitAuth(event)"><div id="nameField" style="display:none;"><div class="form-field"><label>Full Name</label><input type="text" id="authName"></div><div class="form-field"><label>Phone</label><input type="tel" id="authPhone"></div></div><div class="form-field"><label>Email</label><input type="email" id="authEmail" required></div><div class="form-field"><label>Password</label><input type="password" id="authPass" required><div class="form-hint" id="passHint" style="display:none;">Min 6 characters</div></div><button type="submit" class="btn btn-gold" style="width:100%;" id="authSubmitBtn">Sign In</button><div id="authError" style="display:none;margin-top:1rem;padding:10px;background:var(--red-bg);border-radius:8px;"></div></form></div></div>
-<div class="modal-overlay" id="shopModal"><div class="modal-box" style="max-width:520px;"><button class="modal-close" onclick="closeShopModal()"><i class="fas fa-times"></i></button><div class="modal-title">Your Shop</div><form id="shopForm" onsubmit="submitShop(event)"><div class="form-field"><label>Shop Name *</label><input type="text" id="shopName" required></div><div class="form-field"><label>Description</label><input type="text" id="shopDesc"></div><div class="form-field"><label>Location *</label><input type="text" id="shopLocation" placeholder="Street, city" required></div><div class="modal-section-title">Contact Details</div><div class="form-field"><label>Phone</label><input type="tel" id="shopPhone"></div><div class="form-field"><label>WhatsApp Link</label><input type="url" id="shopWhatsapp" placeholder="https://wa.me/..."></div><div class="form-field"><label>Email</label><input type="email" id="shopEmail"></div><button type="submit" class="btn btn-gold" style="width:100%;" id="shopSubmitBtn">Save Shop</button></form></div></div>
-<div class="modal-overlay" id="payModal"><div class="pay-modal-box"><button class="modal-close" onclick="closePayModal()"><i class="fas fa-times"></i></button><div style="text-align:center;"><div style="width:52px;height:52px;border-radius:50%;background:var(--gold-bg);margin:0 auto .8rem;font-size:1.4rem;">🏪</div><div class="modal-title">Activate Your Shop</div></div><div class="sub-plans-grid" id="regPlansGrid"><div class="sub-plan" id="regPlanBasic" onclick="selectRegPlan('basic')"><span class="sub-plan-check"><i class="fas fa-check-circle"></i></span><div class="sub-plan-badge badge-basic">Basic</div><div class="sub-plan-price">UGX 15,000</div><div class="sub-plan-period">/ month</div><ul class="sub-plan-features"><li><i class="fas fa-check"></i>Shop listed</li><li><i class="fas fa-check"></i>Up to 10 listings</li><li><i class="fas fa-image"></i> <strong>Up to 10 images/product</strong></li><li><i class="fas fa-times"></i> No boost</li></ul></div><div class="sub-plan" id="regPlanPremium" onclick="selectRegPlan('premium')"><span class="sub-plan-check"><i class="fas fa-check-circle"></i></span><div class="sub-plan-badge badge-premium">Premium</div><div class="sub-plan-price">UGX 35,000</div><div class="sub-plan-period">/ month</div><ul class="sub-plan-features"><li><i class="fas fa-check"></i>Everything in Basic</li><li><i class="fas fa-check"></i>Up to 30 listings</li><li><i class="fas fa-image"></i> <strong>Up to 12 images/product</strong></li><li><i class="fas fa-check"></i>Boosted search</li></ul></div><div class="sub-plan" id="regPlanPremiumplus" onclick="selectRegPlan('premiumplus')"><span class="sub-plan-check"><i class="fas fa-check-circle"></i></span><div class="sub-plan-badge badge-premium-plus">Premium+</div><div class="sub-plan-price">UGX 105,000</div><div class="sub-plan-period">/ month</div><ul class="sub-plan-features"><li><i class="fas fa-check"></i>Everything in Premium</li><li><i class="fas fa-check"></i>Unlimited listings</li><li><i class="fas fa-infinity"></i> <strong>Unlimited images/product</strong></li><li><i class="fas fa-check"></i>Gold badge + top rank</li></ul></div></div><div id="regAmountDisplay" style="display:none;"></div><div class="pay-method-grid"><div class="pay-method-card" id="payMtn" onclick="selectPayMethod('mtn')"><div class="pay-provider-badge mtn-badge">MTN</div><div class="pay-name">MomoPay</div><div class="pay-num">0772 000 000</div></div><div class="pay-method-card" id="payAirtel" onclick="selectPayMethod('airtel')"><div class="pay-provider-badge airtel-badge">Airtel</div><div class="pay-name">Airtel Pay</div><div class="pay-num">0752 000 000</div></div></div><div class="pay-steps" id="paySteps"></div><div id="payConfirmSection" style="display:none;"><div class="pay-confirm-row"><input class="pay-input-ref" id="payTxnInput" placeholder="Transaction ID"><button class="btn btn-gold" onclick="confirmPayment()">Confirm</button></div><div class="pay-status" id="payStatus"></div></div></div></div>
-<div class="modal-overlay" id="subModal"><div class="pay-modal-box"><button class="modal-close" onclick="closeSubModal()"><i class="fas fa-times"></i></button><div style="text-align:center;"><div class="modal-title" id="subModalTitle">Subscription</div></div><div class="sub-plans-grid" id="subPlansGrid"><div class="sub-plan" id="subPlanBasic" onclick="selectSubPlan('basic')"><span class="sub-plan-check"><i class="fas fa-check-circle"></i></span><div class="sub-plan-badge badge-basic">Basic</div><div class="sub-plan-price">UGX 15,000</div><ul class="sub-plan-features"><li><i class="fas fa-image"></i> 10 images/product</li></ul></div><div class="sub-plan" id="subPlanPremium" onclick="selectSubPlan('premium')"><span class="sub-plan-check"><i class="fas fa-check-circle"></i></span><div class="sub-plan-badge badge-premium">Premium</div><div class="sub-plan-price">UGX 35,000</div><ul class="sub-plan-features"><li><i class="fas fa-image"></i> 12 images/product</li></ul></div><div class="sub-plan" id="subPlanPremiumplus" onclick="selectSubPlan('premiumplus')"><span class="sub-plan-check"><i class="fas fa-check-circle"></i></span><div class="sub-plan-badge badge-premium-plus">Premium+</div><div class="sub-plan-price">UGX 105,000</div><ul class="sub-plan-features"><li><i class="fas fa-infinity"></i> Unlimited images</li></ul></div></div><div class="pay-method-grid"><div class="pay-method-card" onclick="selectSubPayMethod('mtn')"><div class="pay-provider-badge mtn-badge">MTN</div><div class="pay-name">MomoPay</div></div><div class="pay-method-card" onclick="selectSubPayMethod('airtel')"><div class="pay-provider-badge airtel-badge">Airtel</div><div class="pay-name">Airtel Pay</div></div></div><div class="pay-steps" id="subPaySteps"></div><div id="subConfirmSection" style="display:none;"><div class="pay-confirm-row"><input class="pay-input-ref" id="subTxnInput" placeholder="Transaction ID"><button class="btn btn-gold" onclick="confirmSubPayment()">Confirm</button></div><div class="pay-status" id="subPayStatus"></div></div></div></div>
-<div class="modal-overlay" id="confirmDeleteModal"><div class="confirm-modal-box"><div class="confirm-icon">🗑️</div><div class="confirm-title">Delete listing?</div><div class="confirm-actions"><button class="btn btn-ghost" onclick="cancelDelete()">Cancel</button><button class="btn" id="confirmDeleteBtn" onclick="doDeleteAd()" style="background:var(--red);color:white;">Delete</button></div></div></div>
-<div class="chat-widget minimized" id="chatWidget"><div class="chat-head" onclick="toggleChat(event)"><div class="chat-head-info"><div class="chat-head-avatar" id="chatAvatar">MH</div><div><div class="chat-head-name">Chats</div><div class="chat-head-status">● Online</div></div></div><div class="chat-head-btns"><button onclick="minimizeChat()"><i class="fas fa-minus"></i></button><button onclick="closeChat()"><i class="fas fa-times"></i></button></div></div><div class="chat-body" id="chatBody"><div class="chat-placeholder">Click "Chat Seller" on any listing</div></div><div class="chat-foot" id="chatFoot"><input class="chat-input" id="chatInput" placeholder="Type a message…" onkeypress="chatKeyPress(event)"><button class="send-btn" onclick="sendChat()"><i class="fas fa-paper-plane"></i></button></div></div>
+<!-- ═══ PROFILE EDIT MODAL ═══ -->
+<div class="modal-overlay" id="profileModal">
+  <div class="profile-modal-box">
+    <button class="modal-close" onclick="closeProfileModal()" aria-label="Close"><i class="fas fa-times"></i></button>
+    <div class="profile-avatar-big" id="profileAvatarBig">?</div>
+    <div class="modal-title" style="text-align:center;margin-bottom:1.4rem;">Edit Your Profile</div>
+    <form id="profileForm" onsubmit="submitProfile(event)" novalidate>
+      <div class="form-field">
+        <label for="profileName">Full Name *</label>
+        <input type="text" id="profileName" placeholder="Your full name" required>
+      </div>
+      <div class="form-field">
+        <label for="profileEmail">Email Address *</label>
+        <input type="email" id="profileEmail" placeholder="you@example.com" required>
+      </div>
+      <div class="form-field" style="margin-bottom:1.4rem;">
+        <label for="profilePhone">Phone Number</label>
+        <div class="input-icon-wrap">
+          <i class="fas fa-phone"></i>
+          <input type="tel" id="profilePhone" placeholder="+256 700 000000">
+        </div>
+      </div>
+      <div id="profileError" style="display:none;margin-bottom:.8rem;padding:10px 14px;background:var(--red-bg);border:1px solid rgba(240,85,85,.3);border-radius:8px;font-size:.82rem;color:var(--red);"></div>
+      <button type="submit" class="btn btn-gold" style="width:100%;padding:12px;font-size:.95rem;"><i class="fas fa-save" style="margin-right:6px;"></i>Save Profile</button>
+      <button type="button" class="btn btn-ghost" style="width:100%;padding:11px;font-size:.88rem;margin-top:8px;" onclick="if(confirm('Sign out of Arua MarketHub?'))signOut()"><i class="fas fa-sign-out-alt" style="margin-right:6px;"></i>Sign Out</button>
+    </form>
+  </div>
+</div>
+
+<!-- ═══ AUTH MODAL ═══ -->
+<div class="modal-overlay" id="authModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeAuth()" aria-label="Close"><i class="fas fa-times"></i></button>
+    <div class="modal-title" id="authTitle">Welcome back</div>
+
+    <div class="auth-tabs">
+      <div class="auth-tab active" id="tabSignIn" onclick="setAuthMode('login')">Sign In</div>
+      <div class="auth-tab" id="tabSignUp" onclick="setAuthMode('signup')">Create Account</div>
+    </div>
+
+    <form id="authForm" onsubmit="submitAuth(event)" novalidate>
+      <!-- Sign-up only -->
+      <div id="nameField" style="display:none;">
+        <div class="form-field">
+          <label for="authName">Full Name *</label>
+          <input type="text" id="authName" placeholder="Your full name" autocomplete="name">
+        </div>
+        <div class="form-field">
+          <label for="authPhone">Phone Number</label>
+          <div class="input-icon-wrap">
+            <i class="fas fa-phone"></i>
+            <input type="tel" id="authPhone" placeholder="+256 700 000000" autocomplete="tel" style="padding-left:36px;">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="authEmail">Email *</label>
+        <input type="email" id="authEmail" placeholder="you@example.com" autocomplete="email" required>
+      </div>
+
+      <div class="form-field" style="margin-bottom:1.4rem;">
+        <label for="authPass">Password *</label>
+        <input type="password" id="authPass" placeholder="••••••••" autocomplete="current-password" required>
+        <div class="form-hint" id="passHint" style="display:none;">Minimum 6 characters</div>
+      </div>
+
+      <button type="submit" class="btn btn-gold" style="width:100%;padding:12px;font-size:.95rem;" id="authSubmitBtn">Sign In</button>
+
+      <div id="authError" style="display:none;margin-top:.8rem;padding:10px 14px;background:var(--red-bg);border:1px solid rgba(240,85,85,.3);border-radius:8px;font-size:.82rem;color:var(--red);"></div>
+    </form>
+  </div>
+</div>
+
+<!-- ═══ SHOP MODAL ═══ -->
+<div class="modal-overlay" id="shopModal">
+  <div class="modal-box" style="max-width:520px;">
+    <button class="modal-close" onclick="closeShopModal()" aria-label="Close"><i class="fas fa-times"></i></button>
+    <div class="modal-title">Your Shop</div>
+
+    <form id="shopForm" onsubmit="submitShop(event)" novalidate>
+      <div class="form-field">
+        <label for="shopName">Shop Name *</label>
+        <input type="text" id="shopName" placeholder="e.g. Urban Collective" required>
+      </div>
+      <div class="form-field">
+        <label for="shopDesc">Description</label>
+        <input type="text" id="shopDesc" placeholder="What do you sell?">
+      </div>
+      <div class="form-field">
+        <label for="shopLocation"><i class="fas fa-map-marker-alt" style="margin-right:4px;color:var(--gold);"></i>Shop Location *</label>
+        <div class="input-icon-wrap">
+          <i class="fas fa-map-marker-alt"></i>
+          <input type="text" id="shopLocation" placeholder="e.g. Arua City, Ediofe Road, Shop No. 12" required>
+        </div>
+        <div class="form-hint">Give your exact street address or landmark so buyers can find you.</div>
+      </div>
+
+      <div class="modal-section-title"><i class="fas fa-address-book" style="margin-right:5px;"></i>Seller Contact Details — visible to buyers</div>
+
+      <div class="form-field">
+        <label for="shopPhone">Phone / WhatsApp Number</label>
+        <div class="input-icon-wrap">
+          <i class="fas fa-phone"></i>
+          <input type="tel" id="shopPhone" placeholder="+256 700 000000">
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="shopWhatsapp">WhatsApp Link (optional)</label>
+        <div class="input-icon-wrap">
+          <i class="fab fa-whatsapp"></i>
+          <input type="url" id="shopWhatsapp" placeholder="https://wa.me/256700000000">
+        </div>
+        <div class="form-hint">Paste your wa.me link so buyers can message you directly.</div>
+      </div>
+      <div class="form-field" style="margin-bottom:1.4rem;">
+        <label for="shopEmail">Email Address</label>
+        <div class="input-icon-wrap">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="shopEmail" placeholder="shop@example.com">
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-gold" style="width:100%;padding:12px;font-size:.95rem;" id="shopSubmitBtn">Save Shop</button>
+    </form>
+  </div>
+</div>
+
+<!-- ═══ PAYMENT MODAL ═══ -->
+<div class="modal-overlay" id="payModal">
+  <div class="pay-modal-box">
+    <button class="modal-close" onclick="closePayModal()" aria-label="Close"><i class="fas fa-times"></i></button>
+
+    <!-- Header -->
+    <div style="text-align:center;margin-bottom:1.2rem;">
+      <div style="width:52px;height:52px;border-radius:50%;background:var(--gold-bg);border:2px solid var(--gold-dim);display:flex;align-items:center;justify-content:center;margin:0 auto .8rem;font-size:1.4rem;">🏪</div>
+      <div class="modal-title" style="margin-bottom:.2rem;">Activate Your Shop</div>
+      <p style="font-size:.8rem;color:var(--text2);line-height:1.5;">Choose a subscription plan to list your shop. Plans run for <strong style="color:var(--gold);">1 month</strong> — your advertising reach depends on your tier.</p>
+    </div>
+
+    <!-- Plan selector (registration) -->
+    <div class="sub-plans-grid" id="regPlansGrid">
+      <div class="sub-plan" id="regPlanBasic" onclick="selectRegPlan('basic')">
+        <span class="sub-plan-check"><i class="fas fa-check-circle"></i></span>
+        <div class="sub-plan-badge badge-basic">Basic</div>
+        <div class="sub-plan-price">UGX 15,000</div>
+        <div class="sub-plan-period">/ month</div>
+        <ul class="sub-plan-features">
+          <li><i class="fas fa-check"></i>Shop listed on platform</li>
+          <li><i class="fas fa-check"></i>Up to 10 listings</li>
+          <li><i class="fas fa-check"></i>Standard visibility</li>
+          <li><i class="fas fa-times" style="color:var(--text3);"></i><span style="color:var(--text3);">No featured boost</span></li>
+        </ul>
+      </div>
+      <div class="sub-plan" id="regPlanPremium" onclick="selectRegPlan('premium')">
+        <span class="sub-plan-check"><i class="fas fa-check-circle"></i></span>
+        <div class="sub-plan-badge badge-premium">Premium</div>
+        <div class="sub-plan-price">UGX 35,000</div>
+        <div class="sub-plan-period">/ month</div>
+        <ul class="sub-plan-features">
+          <li><i class="fas fa-check"></i>Everything in Basic</li>
+          <li><i class="fas fa-check"></i>Up to 30 listings</li>
+          <li><i class="fas fa-check"></i>Boosted in search</li>
+          <li><i class="fas fa-check"></i>Featured label</li>
+        </ul>
+      </div>
+      <div class="sub-plan" id="regPlanPremiumplus" onclick="selectRegPlan('premiumplus')">
+        <span class="sub-plan-check"><i class="fas fa-check-circle"></i></span>
+        <div class="sub-plan-badge badge-premium-plus">Premium+</div>
+        <div class="sub-plan-price">UGX 105,000</div>
+        <div class="sub-plan-period">/ month</div>
+        <ul class="sub-plan-features">
+          <li><i class="fas fa-check"></i>Everything in Premium</li>
+          <li><i class="fas fa-check"></i>Unlimited listings</li>
+          <li><i class="fas fa-check"></i>Top of all results</li>
+          <li><i class="fas fa-check"></i><span style="color:var(--gold);">Gold "Top Shop" badge</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Amount display -->
+    <div id="regAmountDisplay" style="display:none;background:var(--gold-bg);border:1.5px solid var(--gold-dim);border-radius:var(--radius);padding:.85rem 1.2rem;align-items:center;justify-content:space-between;margin-bottom:1.2rem;">
+      <div>
+        <div style="font-size:.68rem;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;font-weight:600;">Selected Plan — <span id="regPlanLabel">—</span></div>
+        <div style="font-family:var(--font-head);font-size:1.5rem;font-weight:800;color:var(--gold);line-height:1.1;" id="regPlanPrice">—</div>
+        <div style="font-size:.7rem;color:var(--text3);margin-top:2px;">Subscription valid for <strong style="color:var(--text2);">30 days</strong> from payment</div>
+      </div>
+      <i class="fas fa-crown" style="color:var(--gold-dim);font-size:1.6rem;opacity:.7;"></i>
+    </div>
+
+    <!-- Pay to label -->
+    <div style="font-size:.75rem;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.65rem;">Pay to — Arua MarketHub</div>
+
+    <!-- Method cards -->
+    <div class="pay-method-grid">
+      <div class="pay-method-card" id="payMtn" onclick="selectPayMethod('mtn')">
+        <div class="pay-provider-badge mtn-badge">MTN</div>
+        <div class="pay-name">MomoPay</div>
+        <div class="pay-num" id="mtnNum">0772 000 000</div>
+        <div class="pay-check" id="mtnCheck"><i class="fas fa-check-circle"></i></div>
+      </div>
+      <div class="pay-method-card" id="payAirtel" onclick="selectPayMethod('airtel')">
+        <div class="pay-provider-badge airtel-badge">Airtel</div>
+        <div class="pay-name">Airtel Pay</div>
+        <div class="pay-num" id="airtelNum">0752 000 000</div>
+        <div class="pay-check" id="airtelCheck"><i class="fas fa-check-circle"></i></div>
+      </div>
+    </div>
+
+    <!-- Steps + ref (shown on method select) -->
+    <div class="pay-steps" id="paySteps">
+      <div style="font-size:.75rem;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem;">How to pay</div>
+      <ol id="payStepsList"></ol>
+      <div style="margin-top:.9rem;">
+        <div style="font-size:.72rem;color:var(--text3);margin-bottom:4px;">Use this reference when prompted:</div>
+        <div class="pay-ref-box">
+          <span id="payRefCode">—</span>
+          <button class="pay-ref-copy" onclick="copyRef()"><i class="fas fa-copy"></i> Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confirm transaction -->
+    <div id="payConfirmSection" style="display:none;margin-top:1rem;">
+      <div style="font-size:.75rem;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem;">Enter your Transaction ID</div>
+      <div class="pay-confirm-row">
+        <input class="pay-input-ref" type="text" id="payTxnInput" placeholder="e.g. FNK25XXXXXX" maxlength="30">
+        <button class="btn btn-gold" onclick="confirmPayment()" style="white-space:nowrap;padding:11px 16px;"><i class="fas fa-check" style="margin-right:4px;"></i>Confirm</button>
+      </div>
+      <div class="pay-status" id="payStatus"></div>
+      <p class="pay-note"><i class="fas fa-info-circle" style="margin-right:3px;"></i>You'll receive a Transaction ID via SMS after paying. Enter it above to activate your shop. Your subscription is valid for <strong>30 days</strong>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CONFIRM DELETE MODAL ═══ -->
+<div class="modal-overlay" id="confirmDeleteModal">
+  <div class="confirm-modal-box">
+    <div class="confirm-icon">🗑️</div>
+    <div class="confirm-title">Delete this listing?</div>
+    <div class="confirm-body" id="confirmDeleteBody">This will permanently remove the listing from your shop and the marketplace. This action cannot be undone.</div>
+    <div class="confirm-actions">
+      <button class="btn btn-ghost" onclick="cancelDelete()" style="padding:10px 24px;">Cancel</button>
+      <button class="btn" id="confirmDeleteBtn" onclick="doDeleteAd()" style="background:var(--red);color:white;padding:10px 24px;border-radius:50px;border:none;cursor:pointer;font-family:var(--font-body);font-weight:600;"><i class="fas fa-trash" style="margin-right:5px;"></i>Yes, Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SUBSCRIPTION MODAL ═══ -->
+<div class="modal-overlay" id="subModal">
+  <div class="pay-modal-box" style="max-width:560px;">
+    <button class="modal-close" onclick="closeSubModal()" aria-label="Close"><i class="fas fa-times"></i></button>
+
+    <div style="text-align:center;margin-bottom:1.2rem;">
+      <div style="width:52px;height:52px;border-radius:50%;background:var(--gold-bg);border:2px solid var(--gold-dim);display:flex;align-items:center;justify-content:center;margin:0 auto .8rem;font-size:1.4rem;">⭐</div>
+      <div class="modal-title" style="margin-bottom:.2rem;" id="subModalTitle">Choose Your Subscription</div>
+      <p style="font-size:.8rem;color:var(--text2);line-height:1.5;">Your subscription lasts <strong style="color:var(--gold);">1 month</strong>. The tier you choose determines how prominently your shop and products are advertised on the platform.</p>
+    </div>
+
+    <!-- Plan selector -->
+    <div class="sub-plans-grid" id="subPlansGrid">
+      <!-- Basic -->
+      <div class="sub-plan" id="subPlanBasic" onclick="selectSubPlan('basic')">
+        <span class="sub-plan-check"><i class="fas fa-check-circle"></i></span>
+        <div class="sub-plan-badge badge-basic">Basic</div>
+        <div class="sub-plan-price">UGX 15,000</div>
+        <div class="sub-plan-period">/ month</div>
+        <ul class="sub-plan-features">
+          <li><i class="fas fa-check"></i>Shop listed on platform</li>
+          <li><i class="fas fa-check"></i>Up to 10 product listings</li>
+          <li><i class="fas fa-check"></i>Standard visibility</li>
+          <li><i class="fas fa-times" style="color:var(--text3);"></i><span style="color:var(--text3);">No featured boost</span></li>
+        </ul>
+      </div>
+      <!-- Premium -->
+      <div class="sub-plan" id="subPlanPremium" onclick="selectSubPlan('premium')">
+        <span class="sub-plan-check"><i class="fas fa-check-circle"></i></span>
+        <div class="sub-plan-badge badge-premium">Premium</div>
+        <div class="sub-plan-price">UGX 35,000</div>
+        <div class="sub-plan-period">/ month</div>
+        <ul class="sub-plan-features">
+          <li><i class="fas fa-check"></i>Everything in Basic</li>
+          <li><i class="fas fa-check"></i>Up to 30 product listings</li>
+          <li><i class="fas fa-check"></i>Boosted in search results</li>
+          <li><i class="fas fa-check"></i><span>Featured label on listings</span></li>
+        </ul>
+      </div>
+      <!-- Premium Plus -->
+      <div class="sub-plan" id="subPlanPremiumplus" onclick="selectSubPlan('premiumplus')">
+        <span class="sub-plan-check"><i class="fas fa-check-circle"></i></span>
+        <div class="sub-plan-badge badge-premium-plus">Premium+</div>
+        <div class="sub-plan-price">UGX 105,000</div>
+        <div class="sub-plan-period">/ month</div>
+        <ul class="sub-plan-features">
+          <li><i class="fas fa-check"></i>Everything in Premium</li>
+          <li><i class="fas fa-check"></i>Unlimited listings</li>
+          <li><i class="fas fa-check"></i>Top of all results</li>
+          <li><i class="fas fa-check"></i><span style="color:var(--gold);">Gold "Top Shop" badge</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Amount display -->
+    <div id="subAmountDisplay" style="display:none;background:var(--gold-bg);border:1.5px solid var(--gold-dim);border-radius:var(--radius);padding:.85rem 1.2rem;display:none;align-items:center;justify-content:space-between;margin-bottom:1.2rem;">
+      <div>
+        <div style="font-size:.68rem;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;font-weight:600;">Selected Plan — <span id="subPlanLabel">—</span></div>
+        <div style="font-family:var(--font-head);font-size:1.5rem;font-weight:800;color:var(--gold);line-height:1.1;" id="subPlanPrice">—</div>
+        <div style="font-size:.7rem;color:var(--text3);margin-top:2px;">Subscription valid for <strong style="color:var(--text2);">30 days</strong> from payment</div>
+      </div>
+      <i class="fas fa-crown" style="color:var(--gold-dim);font-size:1.6rem;opacity:.7;"></i>
+    </div>
+
+    <!-- Pay to label -->
+    <div style="font-size:.72rem;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.6rem;">Pay to — Arua MarketHub</div>
+
+    <!-- Method cards -->
+    <div class="pay-method-grid">
+      <div class="pay-method-card" id="subPayMtn" onclick="selectSubPayMethod('mtn')">
+        <div class="pay-provider-badge mtn-badge">MTN</div>
+        <div class="pay-name">MomoPay</div>
+        <div class="pay-num">0772 000 000</div>
+        <div class="pay-check" id="subMtnCheck"><i class="fas fa-check-circle"></i></div>
+      </div>
+      <div class="pay-method-card" id="subPayAirtel" onclick="selectSubPayMethod('airtel')">
+        <div class="pay-provider-badge airtel-badge">Airtel</div>
+        <div class="pay-name">Airtel Pay</div>
+        <div class="pay-num">0752 000 000</div>
+        <div class="pay-check" id="subAirtelCheck"><i class="fas fa-check-circle"></i></div>
+      </div>
+    </div>
+
+    <!-- Steps -->
+    <div class="pay-steps" id="subPaySteps">
+      <div style="font-size:.72rem;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem;">How to pay</div>
+      <ol id="subPayStepsList"></ol>
+      <div style="margin-top:.9rem;">
+        <div style="font-size:.72rem;color:var(--text3);margin-bottom:4px;">Use this reference when prompted:</div>
+        <div class="pay-ref-box">
+          <span id="subRefCode">—</span>
+          <button class="pay-ref-copy" onclick="copySubRef()"><i class="fas fa-copy"></i> Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confirm section -->
+    <div id="subConfirmSection" style="display:none;margin-top:1rem;">
+      <div style="font-size:.73rem;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem;">Enter your Transaction ID</div>
+      <div class="pay-confirm-row">
+        <input class="pay-input-ref" type="text" id="subTxnInput" placeholder="e.g. FNK25XXXXXX" maxlength="30">
+        <button class="btn btn-gold" onclick="confirmSubPayment()" style="white-space:nowrap;padding:11px 16px;"><i class="fas fa-check" style="margin-right:4px;"></i>Confirm</button>
+      </div>
+      <div class="pay-status" id="subPayStatus"></div>
+      <p class="pay-note"><i class="fas fa-info-circle" style="margin-right:3px;"></i>You'll receive a Transaction ID via SMS. Enter it above to activate your subscription. Subscription expires in <strong>30 days</strong>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CHAT WIDGET ═══ -->
+<div class="chat-widget minimized" id="chatWidget">
+  <div class="chat-head" onclick="toggleChat(event)">
+    <div class="chat-head-info">
+      <div class="chat-head-avatar" id="chatAvatar">MH</div>
+      <div>
+        <div class="chat-head-name" id="chatTitle">Arua MarketHub Chats</div>
+        <div class="chat-head-status">● Online</div>
+      </div>
+    </div>
+    <div class="chat-head-btns" onclick="event.stopPropagation()">
+      <button onclick="minimizeChat()" title="Minimize"><i class="fas fa-minus"></i></button>
+      <button onclick="closeChat()" title="Close"><i class="fas fa-times"></i></button>
+    </div>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="chat-placeholder" id="chatPlaceholder">
+      <div>
+        <i class="fas fa-comment-dots" style="font-size:2rem;color:var(--text3);display:block;margin-bottom:10px;"></i>
+        Click <strong style="color:var(--text);">Chat Seller</strong> on any listing to start a conversation.
+      </div>
+    </div>
+  </div>
+  <div class="chat-foot" id="chatFoot">
+    <input class="chat-input" id="chatInput" placeholder="Type a message…" onkeypress="chatKeyPress(event)">
+    <button class="send-btn" onclick="sendChat()"><i class="fas fa-paper-plane"></i></button>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
 /* ══════════════════════════════════════════
-   FULL ORIGINAL JAVASCRIPT (all features intact)
-   State, auth, ads, chat, favs, subscriptions, payments
+   STATE
 ══════════════════════════════════════════ */
 let users=[], shops=[], ads=[], messages=[], favs={}, paidUsers=new Set();
+// favs: { userId: Set<adId> } — serialised as { userId: [adId,...] }
+// paidUsers: Set of userIds who have paid — now stores subscription info
+// subscriptions: { userId: { plan:'basic'|'premium'|'premiumplus', expiry: ISOString } }
 let subscriptions = {};
 let currentUser=null, currentConvWith=null, authMode='login', activeCat='all', activePayMethod=null, pendingShopData=null;
 let activeRegPlan=null, activeSubPlan=null, activeSubPayMethod=null, subPayRef='';
-const SUB_PLANS = { basic: { label:'Basic', price:15000, maxAds:10, boost:0 }, premium: { label:'Premium', price:35000, maxAds:30, boost:1 }, premiumplus: { label:'Premium Plus', price:105000, maxAds:Infinity, boost:2 } };
+
+const SUB_PLANS = {
+  basic:       { label:'Basic',        price:15000,  maxAds:10,  boost:0 },
+  premium:     { label:'Premium',      price:35000,  maxAds:30,  boost:1 },
+  premiumplus: { label:'Premium Plus', price:105000, maxAds:Infinity, boost:2 }
+};
+
 const CAT_ICONS={fashion:'👗',electronics:'📱',home:'🏡',food:'🍽️',sports:'⚽',art:'🎨',other:'📦'};
 const CAT_LABELS={fashion:'Fashion',electronics:'Electronics',home:'Home & Garden',food:'Food',sports:'Sports',art:'Art & Crafts',other:'Other'};
 
+/* ══════════════════════════════════════════
+   PERSIST
+══════════════════════════════════════════ */
 function load(){
   const p=k=>{try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}};
   users=p('mh_users'); shops=p('mh_shops'); ads=p('mh_ads'); messages=p('mh_messages');
@@ -558,106 +989,912 @@ function load(){
   try{const pu=localStorage.getItem('mh_paidUsers');if(pu){paidUsers=new Set(JSON.parse(pu));}}catch(e){}
   try{const sb=localStorage.getItem('mh_subs');if(sb){subscriptions=JSON.parse(sb);}}catch(e){}
   try{const c=localStorage.getItem('mh_cu');if(c)currentUser=JSON.parse(c);}catch(e){}
+
   if(!users.length){
-    users=[{id:'u_demo1',name:'Alex Seller',email:'alex@shop.com',password:'1234',phone:'+256 700 123456'},{id:'u_demo2',name:'Beatrice Nakato',email:'bea@market.com',password:'1234',phone:'+256 701 654321'}];
-    shops=[{id:'sh_1',ownerId:'u_demo1',name:'Urban Collective',desc:'Trendy accessories',icon:'🏪',location:'Arua City, Avenue Road',phone:'+256 700 123456',whatsapp:'https://wa.me/256700123456',email:'alex@shop.com'},{id:'sh_2',ownerId:'u_demo2',name:'Tech Vault',desc:'Gadgets',icon:'🏪',location:'Arua City, Weatherhead Park',phone:'+256 701 654321',whatsapp:'https://wa.me/256701654321',email:'bea@market.com'}];
-    ads=[{id:'a1',shopId:'sh_1',title:'Vintage Denim Jacket',price:280000,desc:'Classic blue',image:null,cat:'fashion',createdAt:'2026-05-20T10:00:00Z'},{id:'a2',shopId:'sh_1',title:'Leather Bag',price:195000,desc:'Genuine leather',image:null,cat:'fashion',createdAt:'2026-05-21T08:00:00Z'},{id:'a3',shopId:'sh_2',title:'Wireless Earbuds',price:165000,desc:'Noise cancellation',image:null,cat:'electronics',createdAt:'2026-05-21T12:00:00Z'},{id:'a4',shopId:'sh_2',title:'Power Bank',price:98000,desc:'20000mAh',image:null,cat:'electronics',createdAt:'2026-05-22T06:00:00Z'},{id:'a5',shopId:'sh_1',title:'Ceramic Mug',price:65000,desc:'Handmade',image:null,cat:'art',createdAt:'2026-05-19T09:00:00Z'},{id:'a6',shopId:'sh_2',title:'Yoga Mat',price:125000,desc:'Eco-friendly',image:null,cat:'sports',createdAt:'2026-05-18T15:00:00Z'}];
+    users=[
+      {id:'u_demo1',name:'Alex Seller',email:'alex@shop.com',password:'1234',phone:'+256 700 123456'},
+      {id:'u_demo2',name:'Beatrice Nakato',email:'bea@market.com',password:'1234',phone:'+256 701 654321'}
+    ];
+    shops=[
+      {id:'sh_1',ownerId:'u_demo1',name:'Urban Collective',desc:'Trendy accessories & clothing',icon:'🏪',location:'Arua City, Avenue Road, Shop 4A',
+       phone:'+256 700 123456',whatsapp:'https://wa.me/256700123456',email:'alex@shop.com'},
+      {id:'sh_2',ownerId:'u_demo2',name:'Tech Vault',desc:'Gadgets & electronics',icon:'🏪',location:'Arua City, Weatherhead Park, Ground Floor',
+       phone:'+256 701 654321',whatsapp:'https://wa.me/256701654321',email:'bea@market.com'}
+    ];
+    ads=[
+      {id:'a1',shopId:'sh_1',title:'Vintage Denim Jacket',price:280000,desc:'Classic blue, size M — great condition',image:null,cat:'fashion',createdAt:'2026-05-20T10:00:00Z'},
+      {id:'a2',shopId:'sh_1',title:'Leather Crossbody Bag',price:195000,desc:'Genuine leather, tan colour',image:null,cat:'fashion',createdAt:'2026-05-21T08:00:00Z'},
+      {id:'a3',shopId:'sh_2',title:'Wireless Earbuds Pro',price:165000,desc:'Active noise cancellation, 30hr battery',image:null,cat:'electronics',createdAt:'2026-05-21T12:00:00Z'},
+      {id:'a4',shopId:'sh_2',title:'Portable Power Bank',price:98000,desc:'20,000mAh fast charging',image:null,cat:'electronics',createdAt:'2026-05-22T06:00:00Z'},
+      {id:'a5',shopId:'sh_1',title:'Handmade Ceramic Mug',price:65000,desc:'Artisan crafted, 350ml',image:null,cat:'art',createdAt:'2026-05-19T09:00:00Z'},
+      {id:'a6',shopId:'sh_2',title:'Yoga Mat Premium',price:125000,desc:'Non-slip, 6mm thick, eco-friendly',image:null,cat:'sports',createdAt:'2026-05-18T15:00:00Z'}
+    ];
     save();
+    // Give demo users active Premium subscriptions
     const expiry=new Date(Date.now()+30*24*60*60*1000).toISOString();
     paidUsers.add('u_demo1'); paidUsers.add('u_demo2');
-    subscriptions['u_demo1']={plan:'premium',expiry}; subscriptions['u_demo2']={plan:'premiumplus',expiry};
+    subscriptions['u_demo1']={plan:'premium',expiry};
+    subscriptions['u_demo2']={plan:'premiumplus',expiry};
     save();
   }
 }
-function getUserSub(id){const s=subscriptions[id]; return (s&&new Date(s.expiry)>new Date())?s:null;}
-function isShopActive(shop){return shop?!!getUserSub(shop.ownerId):false;}
-function shopBoost(shop){const s=shop?getUserSub(shop.ownerId):null; return s?(SUB_PLANS[s.plan]||{boost:0}).boost:0;}
+
+/* ══ SUBSCRIPTION HELPERS ══ */
+function getUserSub(userId){
+  const s=subscriptions[userId];
+  if(!s)return null;
+  if(new Date(s.expiry)<new Date())return null; // expired
+  return s;
+}
+function isShopActive(shop){
+  if(!shop)return false;
+  return !!getUserSub(shop.ownerId);
+}
+function shopBoost(shop){
+  if(!shop)return 0;
+  const s=getUserSub(shop.ownerId);
+  return s?(SUB_PLANS[s.plan]||{boost:0}).boost:0;
+}
 function save(){
-  localStorage.setItem('mh_users',JSON.stringify(users)); localStorage.setItem('mh_shops',JSON.stringify(shops)); localStorage.setItem('mh_ads',JSON.stringify(ads)); localStorage.setItem('mh_messages',JSON.stringify(messages));
-  const rawFavs={}; Object.keys(favs).forEach(k=>rawFavs[k]=[...favs[k]]); localStorage.setItem('mh_favs',JSON.stringify(rawFavs));
-  localStorage.setItem('mh_paidUsers',JSON.stringify([...paidUsers])); localStorage.setItem('mh_subs',JSON.stringify(subscriptions));
-  if(currentUser)localStorage.setItem('mh_cu',JSON.stringify(currentUser)); else localStorage.removeItem('mh_cu');
+  localStorage.setItem('mh_users',JSON.stringify(users));
+  localStorage.setItem('mh_shops',JSON.stringify(shops));
+  localStorage.setItem('mh_ads',JSON.stringify(ads));
+  localStorage.setItem('mh_messages',JSON.stringify(messages));
+  const rawFavs={};Object.keys(favs).forEach(k=>rawFavs[k]=[...favs[k]]);
+  localStorage.setItem('mh_favs',JSON.stringify(rawFavs));
+  localStorage.setItem('mh_paidUsers',JSON.stringify([...paidUsers]));
+  localStorage.setItem('mh_subs',JSON.stringify(subscriptions));
+  if(currentUser)localStorage.setItem('mh_cu',JSON.stringify(currentUser));
+  else localStorage.removeItem('mh_cu');
 }
+
+/* ══════════════════════════════════════════
+   HELPERS
+══════════════════════════════════════════ */
 const esc=s=>s?String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])):'';
-const shopById=id=>shops.find(s=>s.id===id); const shopByOwner=uid=>shops.find(s=>s.ownerId===uid);
+const shopById=id=>shops.find(s=>s.id===id);
+const shopByOwner=uid=>shops.find(s=>s.ownerId===uid);
 const initials=name=>name?name.trim().split(/\s+/).map(w=>w[0]).join('').substring(0,2).toUpperCase():'?';
-function userFavs(){ if(!currentUser)return new Set(); if(!favs[currentUser.id])favs[currentUser.id]=new Set(); return favs[currentUser.id]; }
-function isFav(id){return userFavs().has(id);}
-function toggleFav(id,e){ if(e)e.stopPropagation(); if(!currentUser){toast('Sign in to save.');openAuth('login');return;} const s=userFavs(); if(s.has(id)){s.delete(id);toast('Removed.');}else{s.add(id);toast('❤️ Saved!');} save(); updateFavBadge(); renderAds(); if(document.getElementById('panelFavs').style.display!=='none')renderFavs();}
-function updateFavBadge(){ const c=userFavs().size; const b=document.getElementById('favBadge'); if(c>0){b.textContent=c;b.style.display='inline-flex';}else{b.style.display='none';}}
-let toastT; function toast(msg,dur=2800){const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('show'),dur);}
-function updateUI(){
-  const li=document.getElementById('loginBtn'), up=document.getElementById('userPill');
-  if(currentUser){ li.style.display='none'; up.style.display='flex'; document.getElementById('userName').textContent=currentUser.name.split(' ')[0]; document.getElementById('userInitial').textContent=initials(currentUser.name);
-    document.getElementById('mobileUserName').textContent=currentUser.name; document.getElementById('mobileUserEmail').textContent=currentUser.email; document.getElementById('mobileUserAvatar').textContent=initials(currentUser.name);
-  }else{ li.style.display='inline-flex'; up.style.display='none'; }
-  const hasShop=currentUser&&!!shopByOwner(currentUser.id);
-  document.getElementById('tabMyShop').style.display=hasShop?'inline-flex':'none'; document.getElementById('tabPost').style.display=hasShop?'inline-flex':'none';
-  updateChatBadge(); updateFavBadge(); updateMobileMenu();
+const thumbBg=cat=>({fashion:'#1e1e2e',electronics:'#101a26',home:'#111e1a',food:'#1e1808',sports:'#0e1e14',art:'#1e1015',other:'#181820'}[cat]||'#161a23');
+
+/* ══ FAVOURITES HELPERS ══ */
+function userFavs(){
+  if(!currentUser)return new Set();
+  if(!favs[currentUser.id])favs[currentUser.id]=new Set();
+  return favs[currentUser.id];
 }
-function filterCat(el,cat){ activeCat=cat; document.querySelectorAll('.cat-pill').forEach(p=>p.classList.remove('active')); el.classList.add('active'); renderAds(); }
-function buildCard(ad,isMyShopView){ const shop=shopById(ad.shopId); const shopName=shop?esc(shop.name):'Unknown'; const ownerId=shop?shop.ownerId:null; const isOwn=currentUser&&currentUser.id===ownerId; const catLabel=(CAT_ICONS[ad.cat]||'📦')+' '+(CAT_LABELS[ad.cat]||'Other'); const hasContact=shop&&(shop.phone||shop.whatsapp||shop.email); const faved=isFav(ad.id); const favIcon=faved?'fas fa-heart':'far fa-heart'; const sub=shop?getUserSub(shop.ownerId):null; const boost=sub?(SUB_PLANS[sub.plan]||{boost:0}).boost:0; const boostBadge=boost===2?'<span style="position:absolute;top:12px;right:48px;background:linear-gradient(135deg,var(--gold-dim),var(--gold));color:#0d0f14;font-size:.6rem;font-weight:800;padding:2px 8px;border-radius:50px;">⭐ TOP SHOP</span>':boost===1?'<span style="position:absolute;top:12px;right:48px;background:var(--blue-bg);color:var(--blue);border:1px solid rgba(79,163,247,.3);font-size:.6rem;font-weight:700;padding:2px 8px;border-radius:50px;">✦ FEATURED</span>':''; const thumbContent=ad.image?`<img class="card-img" src="${ad.image}" alt="${esc(ad.title)}">`:`<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:170px;"><i class="fas fa-camera" style="font-size:2rem;color:var(--text3);"></i></div>`; const locationRow=(!isMyShopView&&shop&&shop.location)?`<div class="card-location-row"><i class="fas fa-map-marker-alt"></i><span>${esc(shop.location)}</span></div>`:''; return `<div class="card" id="card_${ad.id}"><div class="card-thumb"><span class="card-badge">${catLabel}</span>${thumbContent}${boostBadge}${!isOwn?`<button class="fav-btn ${faved?'active':''}" data-id="${ad.id}" onclick="toggleFav('${ad.id}',event)"><i class="${favIcon}"></i></button>`:''}</div><div class="card-body">${!isMyShopView?`<div class="card-shop"><i class="fas fa-store-alt"></i> ${shopName}</div>`:''}<div class="card-title">${esc(ad.title)}</div><div class="card-desc">${esc(ad.desc)||'&nbsp;'}</div>${locationRow}<div class="card-footer"><div class="card-price">UGX ${parseFloat(ad.price).toLocaleString()}</div><div class="card-actions">${isOwn?`<button class="card-btn btn-delete" onclick="deleteAd('${ad.id}')"><i class="fas fa-trash"></i> Delete</button>`:`${hasContact?`<button class="card-btn btn-contact" onclick="toggleContact('${ad.id}')"><i class="fas fa-address-card"></i> Contact</button>`:''}<button class="card-btn btn-chat" onclick="startChat('${ownerId}','${shopName}','${esc(ad.title).replace(/'/g,"\\'")}')"><i class="fas fa-comment"></i> Chat</button>`}</div></div></div>${(!isOwn&&hasContact)?`<div class="contact-reveal" id="cr_${ad.id}">${shop.phone?`<div class="contact-item"><i class="fas fa-phone"></i><a href="tel:${esc(shop.phone)}">${esc(shop.phone)}</a></div>`:''}${shop.whatsapp?`<div class="contact-item"><i class="fab fa-whatsapp"></i><a href="${esc(shop.whatsapp)}" target="_blank">WhatsApp</a></div>`:''}${shop.email?`<div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:${esc(shop.email)}">${esc(shop.email)}</a></div>`:''}</div>`:''}</div>`; }
-function renderAds(){ const grid=document.getElementById('adsGrid'); const q=document.getElementById('searchInput').value.toLowerCase(); const sort=document.getElementById('sortSelect').value; let list=[...ads].filter(a=>{const s=shopById(a.shopId); return s&&isShopActive(s);}); if(activeCat!=='all')list=list.filter(a=>a.cat===activeCat); if(q)list=list.filter(a=>a.title.toLowerCase().includes(q)||(a.desc||'').toLowerCase().includes(q)||(shopById(a.shopId)||{}).name?.toLowerCase().includes(q)); list.sort((a,b)=>{const bA=shopBoost(shopById(a.shopId)), bB=shopBoost(shopById(b.shopId)); if(bB!==bA)return bB-bA; if(sort==='new')return new Date(b.createdAt)-new Date(a.createdAt); if(sort==='low')return a.price-b.price; return b.price-a.price;}); document.getElementById('listingCount').textContent=`${list.length} listing${list.length!==1?'s':''}`; if(!list.length){grid.innerHTML='<div class="empty-state"><i class="fas fa-box-open"></i><p>No listings found.</p></div>'; return;} grid.innerHTML=list.map(ad=>buildCard(ad,false)).join(''); }
-function toggleContact(id){ const cr=document.getElementById('cr_'+id); if(!cr)return; cr.classList.toggle('open'); const btn=document.querySelector(`#card_${id} .btn-contact`); if(btn)btn.innerHTML=cr.classList.contains('open')?'<i class="fas fa-chevron-up"></i> Hide':'<i class="fas fa-address-card"></i> Contact'; }
-let pendingDeleteId=null; function deleteAd(id){ pendingDeleteId=id; document.getElementById('confirmDeleteModal').classList.add('open'); } function cancelDelete(){ pendingDeleteId=null; document.getElementById('confirmDeleteModal').classList.remove('open'); } function doDeleteAd(){ if(!pendingDeleteId)return; ads=ads.filter(a=>a.id!==pendingDeleteId); pendingDeleteId=null; document.getElementById('confirmDeleteModal').classList.remove('open'); save(); renderAds(); renderMyShop(); toast('Deleted.'); }
-function renderFavs(){ const grid=document.getElementById('favsGrid'); if(!currentUser){grid.innerHTML='<div class="empty-state"><i class="fas fa-heart"></i><p>Sign in to save favourites.</p></div>'; return;} const favSet=userFavs(); const list=ads.filter(a=>favSet.has(a.id)); document.getElementById('favCount').textContent=`${list.length} saved`; if(!list.length){grid.innerHTML='<div class="empty-state"><i class="far fa-heart"></i><p>No favourites yet.</p></div>'; return;} grid.innerHTML=list.map(ad=>buildCard(ad,false)).join(''); }
-function setPanel(p){ ['panelBrowse','panelFavs','panelMyShop','panelPost'].forEach(id=>document.getElementById(id).style.display='none'); ['tabBrowse','tabFavs','tabMyShop','tabPost'].forEach(id=>{const el=document.getElementById(id);if(el)el.classList.remove('active');}); if(p==='browse'){ document.getElementById('panelBrowse').style.display='block'; document.getElementById('tabBrowse').classList.add('active'); renderAds(); } else if(p==='favs'){ document.getElementById('panelFavs').style.display='block'; document.getElementById('tabFavs').classList.add('active'); renderFavs(); } else if(p==='myShop'){ if(!currentUser){toast('Sign in first.');openAuth('login');return;} if(!shopByOwner(currentUser.id)){toast('Register shop first.');openShopModal();return;} document.getElementById('panelMyShop').style.display='block'; document.getElementById('tabMyShop').classList.add('active'); renderMyShop(); } else if(p==='post'){ if(!currentUser){toast('Sign in first.');openAuth('login');return;} if(!shopByOwner(currentUser.id)){toast('Register shop first.');openShopModal();return;} if(!getUserSub(currentUser.id)){toast('Subscribe to post.',3500);openSubModal();return;} document.getElementById('panelPost').style.display='block'; document.getElementById('tabPost').classList.add('active'); } }
-function renderMyShop(){ if(!currentUser)return; const shop=shopByOwner(currentUser.id); const area=document.getElementById('shopProfileArea'); if(!shop){area.innerHTML='<p>No shop yet.</p>';return;} const sub=getUserSub(currentUser.id); const active=!!sub; const contacts=[shop.phone?`<div class="shop-contact-tag"><i class="fas fa-phone"></i> ${esc(shop.phone)}</div>`:'', shop.whatsapp?`<div class="shop-contact-tag"><i class="fab fa-whatsapp"></i> WhatsApp</div>`:'', shop.email?`<div class="shop-contact-tag"><i class="fas fa-envelope"></i> ${esc(shop.email)}</div>`:'', shop.location?`<div class="shop-location-tag"><i class="fas fa-map-marker-alt"></i> ${esc(shop.location)}</div>`:''].filter(Boolean).join(''); let subTag='', subBanner=''; if(active){ const plan=SUB_PLANS[sub.plan]||{label:'Basic'}; const expDate=new Date(sub.expiry).toLocaleDateString(); subTag=`<div class="sub-status-tag sub-active-${sub.plan}">${sub.plan==='premiumplus'?'⭐':sub.plan==='premium'?'✦':'●'} ${plan.label} — expires ${expDate}</div>`; }else{ subBanner=`<div class="shutdown-banner"><i class="fas fa-store-slash"></i><div><h4>Shop Suspended</h4><p>Subscribe to reactivate.</p></div></div>`; } area.innerHTML=`${subBanner}<div class="shop-profile-card"><div class="shop-icon-big">🏪</div><div class="shop-meta"><h2>${esc(shop.name)}</h2><p>${esc(shop.desc)||'No description'}</p><div class="shop-contact-tags">${contacts||'No contact info'}</div></div><div class="shop-actions">${subTag}<button class="sub-renew-btn" onclick="openSubModal()"><i class="fas fa-crown"></i> ${active?'Renew/Upgrade':'Subscribe'}</button><button class="btn btn-ghost" onclick="openShopModal()">Edit Shop</button></div></div>`; const myList=ads.filter(a=>a.shopId===shop.id); const grid=document.getElementById('myAdsGrid'); if(!myList.length){grid.innerHTML='<div class="empty-state"><i class="fas fa-plus-circle"></i><p>No listings yet.</p></div>';return;} grid.innerHTML=myList.map(ad=>buildCard(ad,true)).join(''); }
-function openAuth(mode){ authMode=mode; setAuthMode(mode); clearAuthError(); document.getElementById('authForm').reset(); document.getElementById('authModal').classList.add('open'); }
+function isFav(adId){return userFavs().has(adId);}
+function toggleFav(adId,e){
+  if(e){e.stopPropagation();}
+  if(!currentUser){toast('Sign in to save favourites.');openAuth('login');return;}
+  const set=userFavs();
+  if(set.has(adId)){set.delete(adId);toast('Removed from favourites.');}
+  else{set.add(adId);toast('❤️ Saved to favourites!');}
+  save(); updateFavBadge();
+  // refresh heart icons in both grids without full re-render
+  document.querySelectorAll(`.fav-btn[data-id="${adId}"]`).forEach(btn=>{
+    btn.classList.toggle('active',set.has(adId));
+    btn.title=set.has(adId)?'Remove from favourites':'Save to favourites';
+    btn.querySelector('i').className=set.has(adId)?'fas fa-heart':'far fa-heart';
+  });
+  // if currently on favs panel, re-render it
+  if(document.getElementById('panelFavs').style.display!=='none')renderFavs();
+}
+function updateFavBadge(){
+  const count=userFavs().size;
+  const badge=document.getElementById('favBadge');
+  if(count>0){badge.textContent=count;badge.style.display='inline-flex';}
+  else{badge.style.display='none';}
+}
+
+/* ══════════════════════════════════════════
+   TOAST
+══════════════════════════════════════════ */
+let toastT;
+function toast(msg,dur=2800){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('show'),dur);
+}
+
+/* ══════════════════════════════════════════
+   UI SYNC
+══════════════════════════════════════════ */
+function updateUI(){
+  const li=document.getElementById('loginBtn');
+  const up=document.getElementById('userPill');
+  if(currentUser){
+    li.style.display='none'; up.style.display='flex';
+    document.getElementById('userName').textContent=currentUser.name.split(' ')[0];
+    document.getElementById('userInitial').textContent=initials(currentUser.name);
+  }else{
+    li.style.display='inline-flex'; up.style.display='none';
+  }
+  const hasShop=currentUser&&!!shopByOwner(currentUser.id);
+  document.getElementById('tabMyShop').style.display=hasShop?'inline-flex':'none';
+  document.getElementById('tabPost').style.display=hasShop?'inline-flex':'none';
+  updateChatBadge();
+  updateFavBadge();
+  updateMobileMenu();
+}
+
+/* ══════════════════════════════════════════
+   CATEGORY
+══════════════════════════════════════════ */
+function filterCat(el,cat){
+  activeCat=cat;
+  document.querySelectorAll('.cat-pill').forEach(p=>p.classList.remove('active'));
+  el.classList.add('active'); renderAds();
+}
+
+/* ══ CARD BUILDER ══ */
+function buildCard(ad,isMyShopView){
+  const shop=shopById(ad.shopId);
+  const shopName=shop?esc(shop.name):'Unknown Shop';
+  const ownerId=shop?shop.ownerId:null;
+  const isOwn=currentUser&&currentUser.id===ownerId;
+  const catLabel=(CAT_ICONS[ad.cat]||'📦')+' '+(CAT_LABELS[ad.cat]||'Other');
+  const hasContact=shop&&(shop.phone||shop.whatsapp||shop.email);
+  const faved=isFav(ad.id);
+  const favIcon=faved?'fas fa-heart':'far fa-heart';
+  const sub=shop?getUserSub(shop.ownerId):null;
+  const boost=sub?(SUB_PLANS[sub.plan]||{boost:0}).boost:0;
+  // Boost badge for premium+ shops
+  const boostBadge=boost===2
+    ?`<span style="position:absolute;top:12px;right:${isOwn?'12px':'48px'};z-index:3;background:linear-gradient(135deg,var(--gold-dim),var(--gold));color:#0d0f14;font-size:.6rem;font-weight:800;padding:2px 8px;border-radius:50px;">⭐ TOP SHOP</span>`
+    :boost===1
+    ?`<span style="position:absolute;top:12px;right:${isOwn?'12px':'48px'};z-index:3;background:var(--blue-bg);color:var(--blue);border:1px solid rgba(79,163,247,.3);font-size:.6rem;font-weight:700;padding:2px 8px;border-radius:50px;">✦ FEATURED</span>`
+    :'';
+  const thumbContent=ad.image
+    ?`<img class="card-img" src="${ad.image}" alt="${esc(ad.title)}" loading="lazy">`
+    :`<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:170px;gap:6px;">
+        <i class="fas fa-camera" style="font-size:2rem;color:var(--text3);opacity:.4;"></i>
+        <span style="font-size:.72rem;color:var(--text3);">No photo</span>
+      </div>`;
+  const locationRow=(!isMyShopView&&shop&&shop.location)
+    ?`<div class="card-location-row"><i class="fas fa-map-marker-alt"></i><span>${esc(shop.location)}</span></div>`
+    :'';
+  return`<div class="card" id="card_${ad.id}">
+    <div class="card-thumb" style="${ad.image?'':'background:'+thumbBg(ad.cat)+';'}padding:0;overflow:hidden;position:relative;">
+      <span class="card-badge" style="position:absolute;top:12px;left:12px;z-index:2;">${catLabel}</span>
+      ${thumbContent}
+      ${boostBadge}
+      ${!isOwn?`<button class="fav-btn ${faved?'active':''}" data-id="${ad.id}" onclick="toggleFav('${ad.id}',event)" title="${faved?'Remove from favourites':'Save to favourites'}"><i class="${favIcon}"></i></button>`:''}
+    </div>
+    <div class="card-body">
+      ${!isMyShopView?`<div class="card-shop"><i class="fas fa-store-alt"></i> ${shopName}</div>`:''}
+      <div class="card-title">${esc(ad.title)}</div>
+      <div class="card-desc">${esc(ad.desc)||'&nbsp;'}</div>
+      ${locationRow}
+      <div class="card-footer" style="margin-top:8px;">
+        <div class="card-price">UGX ${parseFloat(ad.price).toLocaleString('en-UG',{minimumFractionDigits:0,maximumFractionDigits:0})}</div>
+        <div class="card-actions">
+          ${isOwn
+            ?`<button class="card-btn btn-delete" onclick="deleteAd('${ad.id}')"><i class="fas fa-trash"></i> Delete</button>`
+            :`${hasContact?`<button class="card-btn btn-contact" onclick="toggleContact('${ad.id}')"><i class="fas fa-address-card"></i> Contact</button>`:''}
+             <button class="card-btn btn-chat" onclick="startChat('${ownerId}','${shopName}','${esc(ad.title).replace(/'/g,"\\'")}')"><i class="fas fa-comment"></i> Chat</button>`
+          }
+        </div>
+      </div>
+    </div>
+    ${(!isOwn&&hasContact)?`<div class="contact-reveal" id="cr_${ad.id}">
+      ${shop.phone?`<div class="contact-item"><i class="fas fa-phone"></i><a href="tel:${esc(shop.phone)}">${esc(shop.phone)}</a></div>`:''}
+      ${shop.whatsapp?`<div class="contact-item"><i class="fab fa-whatsapp" style="color:#25d366;"></i><a href="${esc(shop.whatsapp)}" target="_blank" rel="noopener">WhatsApp Seller</a></div>`:''}
+      ${shop.email?`<div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:${esc(shop.email)}">${esc(shop.email)}</a></div>`:''}
+      ${shop.location?`<div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>${esc(shop.location)}</span></div>`:''}
+    </div>`:''}
+  </div>`;
+}
+
+/* ══ RENDER ADS ══ */
+function renderAds(){
+  const grid=document.getElementById('adsGrid');
+  const q=document.getElementById('searchInput').value.toLowerCase();
+  const sort=document.getElementById('sortSelect').value;
+  // Only show ads from shops with active subscriptions
+  let list=[...ads].filter(a=>{
+    const shop=shopById(a.shopId);
+    return shop&&isShopActive(shop);
+  });
+  if(activeCat!=='all')list=list.filter(a=>a.cat===activeCat);
+  if(q)list=list.filter(a=>
+    a.title.toLowerCase().includes(q)||(a.desc||'').toLowerCase().includes(q)||
+    (shopById(a.shopId)||{}).name?.toLowerCase().includes(q)
+  );
+  // Sort: first by boost level (premiumplus > premium > basic), then by selected sort
+  list.sort((a,b)=>{
+    const bA=shopBoost(shopById(a.shopId));
+    const bB=shopBoost(shopById(b.shopId));
+    if(bB!==bA)return bB-bA;
+    if(sort==='new')return new Date(b.createdAt)-new Date(a.createdAt);
+    if(sort==='low')return a.price-b.price;
+    return b.price-a.price;
+  });
+
+  document.getElementById('listingCount').textContent=`${list.length} listing${list.length!==1?'s':''}`;
+  document.getElementById('gridLabel').textContent=activeCat==='all'?'All Listings':(CAT_ICONS[activeCat]||'')+' '+activeCat.charAt(0).toUpperCase()+activeCat.slice(1);
+
+  if(!list.length){
+    grid.innerHTML=`<div class="empty-state"><i class="fas fa-box-open"></i><p>No listings found.</p></div>`;
+    return;
+  }
+  grid.innerHTML=list.map(ad=>buildCard(ad,false)).join('');
+}
+
+function toggleContact(adId){
+  const cr=document.getElementById('cr_'+adId);
+  if(!cr)return;
+  cr.classList.toggle('open');
+  const btn=document.querySelector(`#card_${adId} .btn-contact`);
+  if(btn)btn.innerHTML=cr.classList.contains('open')
+    ?'<i class="fas fa-chevron-up"></i> Hide'
+    :'<i class="fas fa-address-card"></i> Contact';
+}
+
+let pendingDeleteId = null;
+function deleteAd(id){
+  const ad=ads.find(a=>a.id===id);
+  pendingDeleteId=id;
+  document.getElementById('confirmDeleteBody').textContent=ad
+    ?`Are you sure you want to delete "${ad.title}"? This will permanently remove it from your shop and the marketplace.`
+    :'This will permanently remove the listing. This action cannot be undone.';
+  document.getElementById('confirmDeleteModal').classList.add('open');
+}
+function cancelDelete(){
+  pendingDeleteId=null;
+  document.getElementById('confirmDeleteModal').classList.remove('open');
+}
+function doDeleteAd(){
+  if(!pendingDeleteId)return;
+  ads=ads.filter(a=>a.id!==pendingDeleteId);
+  pendingDeleteId=null;
+  document.getElementById('confirmDeleteModal').classList.remove('open');
+  save(); renderAds(); renderMyShop(); toast('Listing deleted.');
+}
+
+/* ══ RENDER FAVOURITES ══ */
+function renderFavs(){
+  const grid=document.getElementById('favsGrid');
+  if(!currentUser){
+    document.getElementById('favCount').textContent='';
+    grid.innerHTML=`<div class="empty-state" style="grid-column:1/-1;">
+      <i class="fas fa-heart" style="color:var(--red);"></i>
+      <p>Sign in to save &amp; view your favourites.</p>
+      <button class="btn btn-gold" style="margin-top:1rem;" onclick="openAuth('login')">Sign In</button>
+    </div>`;
+    return;
+  }
+  const favSet=userFavs();
+  const list=ads.filter(a=>favSet.has(a.id));
+  document.getElementById('favCount').textContent=`${list.length} saved item${list.length!==1?'s':''}`;
+  if(!list.length){
+    grid.innerHTML=`<div class="empty-state"><i class="far fa-heart"></i><p>No favourites yet.<br><span style="font-size:.8rem;">Tap the ♡ on any listing to save it here.</span></p></div>`;
+    return;
+  }
+  grid.innerHTML=list.map(ad=>buildCard(ad,false)).join('');
+}
+
+/* ══════════════════════════════════════════
+   PANELS
+══════════════════════════════════════════ */
+function setPanel(p){
+  ['panelBrowse','panelFavs','panelMyShop','panelPost'].forEach(id=>document.getElementById(id).style.display='none');
+  ['tabBrowse','tabFavs','tabMyShop','tabPost'].forEach(id=>{const el=document.getElementById(id);if(el)el.classList.remove('active');});
+  if(p==='browse'){
+    document.getElementById('panelBrowse').style.display='block';
+    document.getElementById('tabBrowse').classList.add('active');
+    renderAds();
+  }else if(p==='favs'){
+    document.getElementById('panelFavs').style.display='block';
+    document.getElementById('tabFavs').classList.add('active');
+    renderFavs();
+  }else if(p==='myShop'){
+    if(!currentUser){toast('Please sign in first.');openAuth('login');return;}
+    if(!shopByOwner(currentUser.id)){toast('Register your shop first.');openShopModal();return;}
+    document.getElementById('panelMyShop').style.display='block';
+    document.getElementById('tabMyShop').classList.add('active');
+    renderMyShop();
+  }else if(p==='post'){
+    if(!currentUser){toast('Please sign in first.');openAuth('login');return;}
+    if(!shopByOwner(currentUser.id)){toast('Register your shop first.');openShopModal();return;}
+    if(!getUserSub(currentUser.id)){toast('Subscribe to post listings.',3500);openSubModal();return;}
+    document.getElementById('panelPost').style.display='block';
+    document.getElementById('tabPost').classList.add('active');
+  }
+}
+
+function renderMyShop(){
+  if(!currentUser)return;
+  const shop=shopByOwner(currentUser.id);
+  const area=document.getElementById('shopProfileArea');
+  if(!shop){area.innerHTML='<p style="color:var(--text2);">No shop yet.</p>';return;}
+  const sub=getUserSub(currentUser.id);
+  const active=!!sub;
+  const contacts=[
+    shop.phone?`<div class="shop-contact-tag"><i class="fas fa-phone" style="font-size:.7rem;"></i> ${esc(shop.phone)}</div>`:'',
+    shop.whatsapp?`<div class="shop-contact-tag" style="background:rgba(37,211,102,.1);color:#25d366;border-color:rgba(37,211,102,.3);"><i class="fab fa-whatsapp" style="font-size:.7rem;"></i> WhatsApp</div>`:'',
+    shop.email?`<div class="shop-contact-tag" style="background:var(--blue-bg);color:var(--blue);border-color:rgba(79,163,247,.3);"><i class="fas fa-envelope" style="font-size:.7rem;"></i> ${esc(shop.email)}</div>`:'',
+    shop.location?`<div class="shop-location-tag"><i class="fas fa-map-marker-alt" style="font-size:.7rem;"></i> ${esc(shop.location)}</div>`:''
+  ].filter(Boolean).join('');
+  // Subscription badge
+  let subTag='', subBanner='';
+  if(active){
+    const plan=SUB_PLANS[sub.plan]||{label:'Basic'};
+    const expDate=new Date(sub.expiry).toLocaleDateString('en-UG',{day:'numeric',month:'short',year:'numeric'});
+    const tagClass=`sub-active-${sub.plan}`;
+    const icon=sub.plan==='premiumplus'?'⭐':sub.plan==='premium'?'✦':'●';
+    subTag=`<div class="sub-status-tag ${tagClass}" style="margin-left:auto;">${icon} ${plan.label} — expires ${expDate}</div>`;
+  }else{
+    subBanner=`<div class="shutdown-banner">
+      <i class="fas fa-store-slash"></i>
+      <div class="shutdown-banner-text">
+        <h4>Shop Temporarily Suspended</h4>
+        <p>Your shop and listings are <strong>not visible</strong> on the marketplace and you cannot post new listings until you subscribe. Renew your subscription to reactivate.</p>
+      </div>
+    </div>`;
+  }
+  const subBtnLabel=active?'Upgrade / Renew Subscription':'Subscribe to Activate Shop';
+  area.innerHTML=`${subBanner}<div class="shop-profile-card">
+    <div class="shop-icon-big">🏪</div>
+    <div class="shop-meta">
+      <h2>${esc(shop.name)}</h2>
+      <p>${esc(shop.desc)||'No description yet.'}</p>
+      <div class="shop-contact-tags">${contacts||'<span style="font-size:.78rem;color:var(--text3);">No contact info yet — edit your shop to add.</span>'}</div>
+    </div>
+    <div class="shop-actions" style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
+      ${subTag}
+      <button class="sub-renew-btn" onclick="openSubModal()"><i class="fas fa-crown" style="margin-right:5px;"></i>${subBtnLabel}</button>
+      <button class="btn btn-ghost" onclick="openShopModal()" style="font-size:.82rem;"><i class="fas fa-edit" style="margin-right:5px;"></i>Edit Shop</button>
+    </div>
+  </div>`;
+  const myList=ads.filter(a=>a.shopId===shop.id).sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt));
+  const grid=document.getElementById('myAdsGrid');
+  if(!myList.length){grid.innerHTML=`<div class="empty-state" style="grid-column:1/-1;"><i class="fas fa-plus-circle"></i><p>No listings yet. Post your first ad!</p></div>`;return;}
+  grid.innerHTML=myList.map(ad=>buildCard(ad,true)).join('');
+}
+
+/* ══════════════════════════════════════════
+   AUTH
+══════════════════════════════════════════ */
+function openAuth(mode){
+  authMode=mode; setAuthMode(mode);
+  clearAuthError();
+  document.getElementById('authForm').reset();
+  document.getElementById('authModal').classList.add('open');
+  setTimeout(()=>document.getElementById('authEmail').focus(),200);
+}
 function closeAuth(){document.getElementById('authModal').classList.remove('open');}
-function setAuthMode(mode){ authMode=mode; const isSignup=mode==='signup'; document.getElementById('nameField').style.display=isSignup?'block':'none'; document.getElementById('passHint').style.display=isSignup?'block':'none'; document.getElementById('tabSignIn').classList.toggle('active',!isSignup); document.getElementById('tabSignUp').classList.toggle('active',isSignup); document.getElementById('authTitle').textContent=isSignup?'Create account':'Welcome back'; document.getElementById('authSubmitBtn').textContent=isSignup?'Create Account':'Sign In'; clearAuthError(); }
-function showAuthError(msg){ const el=document.getElementById('authError'); el.textContent=msg; el.style.display='block'; }
-function clearAuthError(){ const el=document.getElementById('authError'); el.style.display='none'; el.textContent=''; }
-function submitAuth(e){ e.preventDefault(); clearAuthError(); const email=document.getElementById('authEmail').value.trim().toLowerCase(); const pass=document.getElementById('authPass').value; if(!email||!pass){showAuthError('All fields required.');return;} if(authMode==='signup'){ const name=document.getElementById('authName').value.trim(); if(!name){showAuthError('Full name required.');return;} if(pass.length<6){showAuthError('Password min 6 chars.');return;} if(users.find(u=>u.email===email)){showAuthError('Email already registered.');return;} const newUser={id:'u_'+Date.now(),name,email,password:pass,phone:document.getElementById('authPhone').value.trim()||''}; users.push(newUser); currentUser=newUser; save(); closeAuth(); updateUI(); toast('Welcome!'); setTimeout(()=>{ if(!shopByOwner(currentUser.id)){ openShopModal(); toast('Register your shop to sell!',4000); }else{ setPanel('browse'); } },400); }else{ const found=users.find(u=>u.email===email&&u.password===pass); if(!found){showAuthError('Invalid credentials.');return;} currentUser=found; save(); closeAuth(); updateUI(); toast('Welcome back!'); setPanel('browse'); } }
-function signOut(){ currentUser=null; currentConvWith=null; save(); updateUI(); setPanel('browse'); toast('Signed out.'); }
-const PAY_METHODS={ mtn:{ label:'MTN', number:'0772 000 000', stepsFor: amount => [`Pay UGX ${amount.toLocaleString()} to ${PAY_METHODS.mtn.number}`, 'Use reference code below'] }, airtel:{ label:'Airtel', number:'0752 000 000', stepsFor: amount => [`Pay UGX ${amount.toLocaleString()} to ${PAY_METHODS.airtel.number}`, 'Use reference code below'] } };
-let payRef=''; function genRef(){ const chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; let r='AMH-'; for(let i=0;i<8;i++)r+=chars[Math.floor(Math.random()*chars.length)]; return r; }
-function selectRegPlan(plan){ activeRegPlan=plan; document.getElementById('regPlanBasic').classList.toggle('selected',plan==='basic'); document.getElementById('regPlanPremium').classList.toggle('selected',plan==='premium'); document.getElementById('regPlanPremiumplus').classList.toggle('selected',plan==='premiumplus'); document.getElementById('regPlanLabel').textContent=SUB_PLANS[plan].label; document.getElementById('regPlanPrice').textContent=`UGX ${SUB_PLANS[plan].price.toLocaleString()}`; document.getElementById('regAmountDisplay').style.display='flex'; activePayMethod=null; document.getElementById('payMtn').classList.remove('selected'); document.getElementById('payAirtel').classList.remove('selected'); document.getElementById('paySteps').classList.remove('visible'); document.getElementById('payConfirmSection').style.display='none'; }
-function openPayModal(){ activePayMethod=null; activeRegPlan=null; payRef=genRef(); document.getElementById('payRefCode').textContent=payRef; document.getElementById('regPlanBasic').classList.remove('selected'); document.getElementById('regPlanPremium').classList.remove('selected'); document.getElementById('regPlanPremiumplus').classList.remove('selected'); document.getElementById('regAmountDisplay').style.display='none'; document.getElementById('payMtn').classList.remove('selected'); document.getElementById('payAirtel').classList.remove('selected'); document.getElementById('paySteps').classList.remove('visible'); document.getElementById('payConfirmSection').style.display='none'; document.getElementById('payTxnInput').value=''; document.getElementById('payStatus').className='pay-status'; document.getElementById('payModal').classList.add('open'); }
-function closePayModal(){ document.getElementById('payModal').classList.remove('open'); pendingShopData=null; }
-function selectPayMethod(method){ if(!activeRegPlan){toast('Select plan first.');return;} activePayMethod=method; document.getElementById('payMtn').classList.toggle('selected',method==='mtn'); document.getElementById('payAirtel').classList.toggle('selected',method==='airtel'); const amount=SUB_PLANS[activeRegPlan].price; const m=PAY_METHODS[method]; document.getElementById('payStepsList').innerHTML=m.stepsFor(amount).map(s=>`<li>${s}</li>`).join(''); document.getElementById('paySteps').classList.add('visible'); document.getElementById('payConfirmSection').style.display='block'; }
-function copyRef(){ navigator.clipboard.writeText(payRef).then(()=>toast('Copied!')); }
-function confirmPayment(){ const txn=document.getElementById('payTxnInput').value.trim(); const statusEl=document.getElementById('payStatus'); if(!activeRegPlan){statusEl.className='pay-status error'; statusEl.textContent='Select plan'; return;} if(!txn){statusEl.className='pay-status error'; statusEl.textContent='Enter Transaction ID'; return;} const expiry=new Date(Date.now()+30*24*60*60*1000).toISOString(); subscriptions[currentUser.id]={plan:activeRegPlan,expiry}; paidUsers.add(currentUser.id); if(pendingShopData){ shops.push({id:'sh_'+Date.now(),ownerId:currentUser.id,...pendingShopData}); pendingShopData=null; } save(); updateUI(); statusEl.className='pay-status success'; statusEl.textContent='✅ Shop activated!'; setTimeout(()=>{ closePayModal(); toast('Shop activated!'); setPanel('myShop'); },1500); }
-function openSubModal(){ if(!currentUser){openAuth('login');return;} activeSubPlan=null; activeSubPayMethod=null; subPayRef=genRef(); document.getElementById('subRefCode').textContent=subPayRef; document.getElementById('subPlanBasic').classList.remove('selected'); document.getElementById('subPlanPremium').classList.remove('selected'); document.getElementById('subPlanPremiumplus').classList.remove('selected'); document.getElementById('subAmountDisplay').style.display='none'; document.getElementById('subPayMtn').classList.remove('selected'); document.getElementById('subPayAirtel').classList.remove('selected'); document.getElementById('subPaySteps').classList.remove('visible'); document.getElementById('subConfirmSection').style.display='none'; document.getElementById('subTxnInput').value=''; document.getElementById('subPayStatus').className='pay-status'; const existingSub=getUserSub(currentUser.id); document.getElementById('subModalTitle').textContent=existingSub?'Renew Subscription':'Activate Subscription'; document.getElementById('subModal').classList.add('open'); }
-function closeSubModal(){ document.getElementById('subModal').classList.remove('open'); }
-function selectSubPlan(plan){ activeSubPlan=plan; document.getElementById('subPlanBasic').classList.toggle('selected',plan==='basic'); document.getElementById('subPlanPremium').classList.toggle('selected',plan==='premium'); document.getElementById('subPlanPremiumplus').classList.toggle('selected',plan==='premiumplus'); document.getElementById('subPlanLabel').textContent=SUB_PLANS[plan].label; document.getElementById('subPlanPrice').textContent=`UGX ${SUB_PLANS[plan].price.toLocaleString()}`; document.getElementById('subAmountDisplay').style.display='flex'; activeSubPayMethod=null; document.getElementById('subPayMtn').classList.remove('selected'); document.getElementById('subPayAirtel').classList.remove('selected'); document.getElementById('subPaySteps').classList.remove('visible'); document.getElementById('subConfirmSection').style.display='none'; }
-function selectSubPayMethod(method){ if(!activeSubPlan){toast('Select plan first.');return;} activeSubPayMethod=method; document.getElementById('subPayMtn').classList.toggle('selected',method==='mtn'); document.getElementById('subPayAirtel').classList.toggle('selected',method==='airtel'); const amount=SUB_PLANS[activeSubPlan].price; const m=PAY_METHODS[method]; document.getElementById('subPayStepsList').innerHTML=m.stepsFor(amount).map(s=>`<li>${s}</li>`).join(''); document.getElementById('subPaySteps').classList.add('visible'); document.getElementById('subConfirmSection').style.display='block'; }
-function copySubRef(){ navigator.clipboard.writeText(subPayRef).then(()=>toast('Copied!')); }
-function confirmSubPayment(){ const txn=document.getElementById('subTxnInput').value.trim(); const statusEl=document.getElementById('subPayStatus'); if(!activeSubPlan){statusEl.className='pay-status error'; statusEl.textContent='Select plan'; return;} if(!txn){statusEl.className='pay-status error'; statusEl.textContent='Enter Transaction ID'; return;} const expiry=new Date(Date.now()+30*24*60*60*1000).toISOString(); subscriptions[currentUser.id]={plan:activeSubPlan,expiry}; paidUsers.add(currentUser.id); save(); updateUI(); statusEl.className='pay-status success'; statusEl.textContent='✅ Subscription active!'; setTimeout(()=>{ closeSubModal(); toast('Subscription activated!'); setPanel('myShop'); },1500); }
-function openShopModal(){ if(!currentUser){openAuth('login');return;} const ex=shopByOwner(currentUser.id); if(ex){ document.getElementById('shopName').value=ex.name||''; document.getElementById('shopDesc').value=ex.desc||''; document.getElementById('shopLocation').value=ex.location||''; document.getElementById('shopPhone').value=ex.phone||''; document.getElementById('shopWhatsapp').value=ex.whatsapp||''; document.getElementById('shopEmail').value=ex.email||''; document.getElementById('shopSubmitBtn').innerHTML='Save Changes'; }else{ document.getElementById('shopForm').reset(); document.getElementById('shopSubmitBtn').innerHTML='Continue to Payment'; } document.getElementById('shopModal').classList.add('open'); }
-function closeShopModal(){ document.getElementById('shopModal').classList.remove('open'); }
-function submitShop(e){ e.preventDefault(); const name=document.getElementById('shopName').value.trim(); const location=document.getElementById('shopLocation').value.trim(); if(!name||!location){toast('Name and location required.');return;} const data={name,desc:document.getElementById('shopDesc').value.trim(), icon:'🏪',location, phone:document.getElementById('shopPhone').value.trim(), whatsapp:document.getElementById('shopWhatsapp').value.trim(), email:document.getElementById('shopEmail').value.trim()}; const ex=shopByOwner(currentUser.id); if(ex){ Object.assign(ex,data); save(); updateUI(); closeShopModal(); toast('Shop updated!'); setPanel('myShop'); }else{ pendingShopData=data; closeShopModal(); openPayModal(); } }
-function submitAd(e){ e.preventDefault(); const shop=shopByOwner(currentUser.id); if(!shop){toast('Register shop first.');openShopModal();return;} if(!getUserSub(currentUser.id)){toast('Subscribe to post.',3500);openSubModal();return;} const title=document.getElementById('adTitle').value.trim(); const price=parseFloat(document.getElementById('adPrice').value); if(!title||isNaN(price)||price<=0){toast('Valid title & price.');return;} ads.push({id:'ad_'+Date.now(),shopId:shop.id,title,price, desc:document.getElementById('adDesc').value.trim(), image:pendingAdImage||null, cat:document.getElementById('adCat').value, createdAt:new Date().toISOString()}); pendingAdImage=null; document.getElementById('adImgArea').classList.remove('has-img'); document.getElementById('adImgArea').innerHTML=`<input type="file" accept="image/*" onchange="handleAdImg(event)"><i class="fas fa-camera"></i><p><strong>Click to upload a photo</strong></p>`; save(); document.getElementById('adForm').reset(); toast('Listing published!'); setPanel('browse'); }
-function cid(a,b){return[a,b].sort().join('__');} function getMsgs(u1,u2){return messages.filter(m=>cid(m.from,m.to)===cid(u1,u2)).sort((a,b)=>new Date(a.ts)-new Date(b.ts));}
-function startChat(ownerId,shopName,itemTitle){ if(!currentUser){toast('Sign in to chat.');openAuth('login');return;} if(currentUser.id===ownerId){toast("That's your own listing!");return;} currentConvWith=ownerId; const seller=users.find(u=>u.id===ownerId); const displayName=shopName||(seller?seller.name:'Seller'); document.getElementById('chatTitle').textContent='Chat — '+displayName; document.getElementById('chatAvatar').textContent=initials(seller?seller.name:displayName); document.getElementById('chatWidget').classList.remove('minimized'); document.getElementById('chatInput').placeholder=`Ask about "${itemTitle.substring(0,28)}…"`; renderChatMsgs(); updateChatBadge(); }
-function renderChatMsgs(){ if(!currentUser||!currentConvWith)return; const msgs=getMsgs(currentUser.id,currentConvWith); const body=document.getElementById('chatBody'); const ph=document.getElementById('chatPlaceholder'); if(!msgs.length){ph.style.display='flex';body.querySelectorAll('.msg-wrap').forEach(m=>m.remove());return;} ph.style.display='none'; body.innerHTML=msgs.map(m=>{ const sent=m.from===currentUser.id; return`<div class="msg-wrap ${sent?'sent':'received'}"><div class="msg ${sent?'sent':'received'}">${esc(m.text)}</div><div class="msg-time">${new Date(m.ts).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}</div></div>`; }).join(''); body.scrollTop=body.scrollHeight; }
-function sendChat(){ if(!currentUser){toast('Sign in to send.');return;} if(!currentConvWith){toast('Open a conversation first.');return;} const inp=document.getElementById('chatInput'); const text=inp.value.trim(); if(!text)return; messages.push({id:'m_'+Date.now(),from:currentUser.id,to:currentConvWith,text,ts:new Date().toISOString()}); save(); inp.value=''; renderChatMsgs(); updateChatBadge(); }
+
+function setAuthMode(mode){
+  authMode=mode;
+  const isSignup=mode==='signup';
+  document.getElementById('nameField').style.display=isSignup?'block':'none';
+  document.getElementById('passHint').style.display=isSignup?'block':'none';
+  document.getElementById('tabSignIn').classList.toggle('active',!isSignup);
+  document.getElementById('tabSignUp').classList.toggle('active',isSignup);
+  document.getElementById('authTitle').textContent=isSignup?'Create account':'Welcome back';
+  document.getElementById('authSubmitBtn').textContent=isSignup?'Create Account':'Sign In';
+  clearAuthError();
+}
+
+function showAuthError(msg){
+  const el=document.getElementById('authError');
+  el.textContent=msg; el.style.display='block';
+}
+function clearAuthError(){
+  const el=document.getElementById('authError');
+  el.style.display='none'; el.textContent='';
+}
+
+function submitAuth(e){
+  e.preventDefault(); clearAuthError();
+  const email=document.getElementById('authEmail').value.trim().toLowerCase();
+  const pass=document.getElementById('authPass').value;
+
+  if(!email){showAuthError('Please enter your email address.');return;}
+  if(!pass){showAuthError('Please enter your password.');return;}
+
+  if(authMode==='signup'){
+    const name=document.getElementById('authName').value.trim();
+    if(!name){showAuthError('Please enter your full name.');return;}
+    if(pass.length<6){showAuthError('Password must be at least 6 characters.');return;}
+    if(users.find(u=>u.email===email)){
+      showAuthError('That email is already registered. Sign in instead.');
+      return;
+    }
+    const newUser={id:'u_'+Date.now(),name,email,password:pass,phone:document.getElementById('authPhone').value.trim()||''};
+    users.push(newUser);
+    currentUser=newUser;
+    save(); closeAuth(); updateUI();
+    toast('🎉 Welcome, '+name.split(' ')[0]+'! Account created.');
+    // Prompt shop creation via modal — no confirm() dialog
+    setTimeout(()=>{
+      if(!shopByOwner(currentUser.id)){
+        openShopModal();
+        toast('Register your shop to start selling!',4000);
+      }else{
+        setPanel('browse');
+      }
+    },400);
+
+  }else{
+    const found=users.find(u=>u.email===email&&u.password===pass);
+    if(!found){showAuthError('Incorrect email or password. Please try again.');return;}
+    currentUser=found;
+    save(); closeAuth(); updateUI();
+    toast('Welcome back, '+found.name.split(' ')[0]+'! 👋');
+    setPanel('browse');
+  }
+}
+
+function signOut(){
+  currentUser=null; currentConvWith=null;
+  save(); updateUI(); setPanel('browse');
+  toast('Signed out. See you soon!');
+}
+
+/* ══════════════════════════════════════════
+   PAYMENT (Registration)
+══════════════════════════════════════════ */
+const PAY_METHODS = {
+  mtn: {
+    label: 'MTN MomoPay',
+    number: '0772 000 000',
+    stepsFor: amount => [
+      'Dial <strong>*165*3#</strong> on your MTN line to open MomoPay.',
+      'Select <strong>Pay Merchant / Deposit</strong>.',
+      'Enter MomoPay number: <strong>0772 000 000</strong> (Arua MarketHub).',
+      `Enter amount: <strong>UGX ${amount.toLocaleString()}</strong>.`,
+      'Enter your reference code below as the reason.',
+      'Confirm with your PIN — save the <strong>Transaction ID</strong> from the SMS.'
+    ]
+  },
+  airtel: {
+    label: 'Airtel Pay',
+    number: '0752 000 000',
+    stepsFor: amount => [
+      'Dial <strong>*185#</strong> on your Airtel line.',
+      'Select <strong>Make Payments</strong> → <strong>Pay a Number</strong>.',
+      'Enter Airtel Pay number: <strong>0752 000 000</strong> (Arua MarketHub).',
+      `Enter amount: <strong>UGX ${amount.toLocaleString()}</strong>.`,
+      'Enter your reference code below as the reason.',
+      'Confirm with your PIN — save the <strong>Transaction ID</strong> from the SMS.'
+    ]
+  }
+};
+
+let payRef = '';
+
+function genRef(){
+  const chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let r='AMH-';
+  for(let i=0;i<8;i++)r+=chars[Math.floor(Math.random()*chars.length)];
+  return r;
+}
+
+/* Registration plan select */
+function selectRegPlan(plan){
+  activeRegPlan=plan;
+  ['basic','premium','premiumplus'].forEach(p=>{
+    document.getElementById(`regPlan${p.charAt(0).toUpperCase()+p.slice(1).replace('plus','plus')}`).classList.toggle('selected',p===plan);
+  });
+  // Fix capitalization for IDs
+  document.getElementById('regPlanBasic').classList.toggle('selected',plan==='basic');
+  document.getElementById('regPlanPremium').classList.toggle('selected',plan==='premium');
+  document.getElementById('regPlanPremiumplus').classList.toggle('selected',plan==='premiumplus');
+  const info=SUB_PLANS[plan];
+  document.getElementById('regPlanLabel').textContent=info.label;
+  document.getElementById('regPlanPrice').textContent=`UGX ${info.price.toLocaleString()}`;
+  const disp=document.getElementById('regAmountDisplay');
+  disp.style.display='flex';
+  // reset pay method
+  activePayMethod=null;
+  document.getElementById('payMtn').classList.remove('selected');
+  document.getElementById('payAirtel').classList.remove('selected');
+  document.getElementById('paySteps').classList.remove('visible');
+  document.getElementById('payConfirmSection').style.display='none';
+}
+
+function openPayModal(){
+  activePayMethod=null; activeRegPlan=null; payRef=genRef();
+  document.getElementById('payRefCode').textContent=payRef;
+  document.getElementById('regPlanBasic').classList.remove('selected');
+  document.getElementById('regPlanPremium').classList.remove('selected');
+  document.getElementById('regPlanPremiumplus').classList.remove('selected');
+  document.getElementById('regAmountDisplay').style.display='none';
+  document.getElementById('payMtn').classList.remove('selected');
+  document.getElementById('payAirtel').classList.remove('selected');
+  document.getElementById('mtnNum').textContent=PAY_METHODS.mtn.number;
+  document.getElementById('airtelNum').textContent=PAY_METHODS.airtel.number;
+  document.getElementById('paySteps').classList.remove('visible');
+  document.getElementById('payConfirmSection').style.display='none';
+  document.getElementById('payTxnInput').value='';
+  document.getElementById('payStatus').className='pay-status';
+  document.getElementById('payStatus').textContent='';
+  document.getElementById('payModal').classList.add('open');
+}
+
+function closePayModal(){
+  document.getElementById('payModal').classList.remove('open');
+  pendingShopData=null;
+}
+
+function selectPayMethod(method){
+  if(!activeRegPlan){toast('Please select a subscription plan first.');return;}
+  activePayMethod=method;
+  document.getElementById('payMtn').classList.toggle('selected',method==='mtn');
+  document.getElementById('payAirtel').classList.toggle('selected',method==='airtel');
+  const amount=SUB_PLANS[activeRegPlan].price;
+  const m=PAY_METHODS[method];
+  document.getElementById('payStepsList').innerHTML=m.stepsFor(amount).map(s=>`<li>${s}</li>`).join('');
+  document.getElementById('paySteps').classList.add('visible');
+  document.getElementById('payConfirmSection').style.display='block';
+}
+
+function copyRef(){
+  navigator.clipboard.writeText(payRef).then(()=>toast('Reference copied!')).catch(()=>{
+    const ta=document.createElement('textarea');ta.value=payRef;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();toast('Reference copied!');
+  });
+}
+
+function confirmPayment(){
+  const txn=document.getElementById('payTxnInput').value.trim();
+  const statusEl=document.getElementById('payStatus');
+  statusEl.className='pay-status';
+  if(!activeRegPlan){statusEl.className='pay-status error';statusEl.textContent='Please choose a subscription plan.';return;}
+  if(!activePayMethod){statusEl.className='pay-status error';statusEl.textContent='Please choose a payment method above.';return;}
+  if(!txn){statusEl.className='pay-status error';statusEl.textContent='Please enter your Transaction ID from the SMS.';return;}
+  if(txn.length<5){statusEl.className='pay-status error';statusEl.textContent='Transaction ID looks too short. Please check and try again.';return;}
+
+  // Activate subscription + create shop
+  const expiry=new Date(Date.now()+30*24*60*60*1000).toISOString();
+  subscriptions[currentUser.id]={plan:activeRegPlan,expiry};
+  paidUsers.add(currentUser.id);
+  if(pendingShopData){
+    shops.push({id:'sh_'+Date.now(),ownerId:currentUser.id,...pendingShopData});
+    pendingShopData=null;
+  }
+  save(); updateUI();
+
+  statusEl.className='pay-status success';
+  const planLabel=SUB_PLANS[activeRegPlan].label;
+  statusEl.textContent=`✅ Payment confirmed! Your shop is now live on the ${planLabel} plan (30 days).`;
+  setTimeout(()=>{
+    closePayModal();
+    toast('🎉 Shop activated! Welcome to Arua MarketHub.');
+    setPanel('myShop');
+  },1800);
+}
+
+/* ══════════════════════════════════════════
+   SUBSCRIPTION RENEWAL MODAL
+══════════════════════════════════════════ */
+function openSubModal(){
+  if(!currentUser){openAuth('login');return;}
+  activeSubPlan=null; activeSubPayMethod=null; subPayRef=genRef();
+  document.getElementById('subRefCode').textContent=subPayRef;
+  document.getElementById('subPlanBasic').classList.remove('selected');
+  document.getElementById('subPlanPremium').classList.remove('selected');
+  document.getElementById('subPlanPremiumplus').classList.remove('selected');
+  document.getElementById('subAmountDisplay').style.display='none';
+  document.getElementById('subPayMtn').classList.remove('selected');
+  document.getElementById('subPayAirtel').classList.remove('selected');
+  document.getElementById('subPaySteps').classList.remove('visible');
+  document.getElementById('subConfirmSection').style.display='none';
+  document.getElementById('subTxnInput').value='';
+  document.getElementById('subPayStatus').className='pay-status';
+  document.getElementById('subPayStatus').textContent='';
+  const existingSub=getUserSub(currentUser.id);
+  document.getElementById('subModalTitle').textContent=existingSub?'Renew / Upgrade Subscription':'Activate Your Subscription';
+  document.getElementById('subModal').classList.add('open');
+}
+function closeSubModal(){document.getElementById('subModal').classList.remove('open');}
+
+function selectSubPlan(plan){
+  activeSubPlan=plan;
+  document.getElementById('subPlanBasic').classList.toggle('selected',plan==='basic');
+  document.getElementById('subPlanPremium').classList.toggle('selected',plan==='premium');
+  document.getElementById('subPlanPremiumplus').classList.toggle('selected',plan==='premiumplus');
+  const info=SUB_PLANS[plan];
+  document.getElementById('subPlanLabel').textContent=info.label;
+  document.getElementById('subPlanPrice').textContent=`UGX ${info.price.toLocaleString()}`;
+  const disp=document.getElementById('subAmountDisplay');
+  disp.style.display='flex';
+  activeSubPayMethod=null;
+  document.getElementById('subPayMtn').classList.remove('selected');
+  document.getElementById('subPayAirtel').classList.remove('selected');
+  document.getElementById('subPaySteps').classList.remove('visible');
+  document.getElementById('subConfirmSection').style.display='none';
+}
+
+function selectSubPayMethod(method){
+  if(!activeSubPlan){toast('Please select a plan first.');return;}
+  activeSubPayMethod=method;
+  document.getElementById('subPayMtn').classList.toggle('selected',method==='mtn');
+  document.getElementById('subPayAirtel').classList.toggle('selected',method==='airtel');
+  const amount=SUB_PLANS[activeSubPlan].price;
+  const m=PAY_METHODS[method];
+  document.getElementById('subPayStepsList').innerHTML=m.stepsFor(amount).map(s=>`<li>${s}</li>`).join('');
+  document.getElementById('subPaySteps').classList.add('visible');
+  document.getElementById('subConfirmSection').style.display='block';
+}
+
+function copySubRef(){
+  navigator.clipboard.writeText(subPayRef).then(()=>toast('Reference copied!')).catch(()=>{
+    const ta=document.createElement('textarea');ta.value=subPayRef;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();toast('Reference copied!');
+  });
+}
+
+function confirmSubPayment(){
+  const txn=document.getElementById('subTxnInput').value.trim();
+  const statusEl=document.getElementById('subPayStatus');
+  statusEl.className='pay-status';
+  if(!activeSubPlan){statusEl.className='pay-status error';statusEl.textContent='Please choose a subscription plan.';return;}
+  if(!activeSubPayMethod){statusEl.className='pay-status error';statusEl.textContent='Please choose a payment method.';return;}
+  if(!txn){statusEl.className='pay-status error';statusEl.textContent='Please enter your Transaction ID from the SMS.';return;}
+  if(txn.length<5){statusEl.className='pay-status error';statusEl.textContent='Transaction ID looks too short.';return;}
+
+  const expiry=new Date(Date.now()+30*24*60*60*1000).toISOString();
+  subscriptions[currentUser.id]={plan:activeSubPlan,expiry};
+  paidUsers.add(currentUser.id);
+  save(); updateUI();
+
+  const planLabel=SUB_PLANS[activeSubPlan].label;
+  statusEl.className='pay-status success';
+  statusEl.textContent=`✅ Subscribed to ${planLabel}! Active for 30 days.`;
+  setTimeout(()=>{
+    closeSubModal();
+    toast(`⭐ ${planLabel} subscription active for 30 days!`,3500);
+    setPanel('myShop');
+  },1800);
+}
+
+/* ══════════════════════════════════════════
+   SHOP
+══════════════════════════════════════════ */
+function openShopModal(){
+  if(!currentUser){openAuth('login');return;}
+  const ex=shopByOwner(currentUser.id);
+  if(ex){
+    document.getElementById('shopName').value=ex.name||'';
+    document.getElementById('shopDesc').value=ex.desc||'';
+    document.getElementById('shopLocation').value=ex.location||'';
+    document.getElementById('shopPhone').value=ex.phone||'';
+    document.getElementById('shopWhatsapp').value=ex.whatsapp||'';
+    document.getElementById('shopEmail').value=ex.email||'';
+    document.getElementById('shopSubmitBtn').innerHTML='<i class="fas fa-save" style="margin-right:6px;"></i>Save Changes';
+  }else{
+    document.getElementById('shopForm').reset();
+    document.getElementById('shopSubmitBtn').innerHTML='<i class="fas fa-credit-card" style="margin-right:6px;"></i>Continue to Subscription — from UGX 15,000';
+  }
+  document.getElementById('shopModal').classList.add('open');
+  setTimeout(()=>document.getElementById('shopName').focus(),200);
+}
+function closeShopModal(){document.getElementById('shopModal').classList.remove('open');}
+
+function submitShop(e){
+  e.preventDefault();
+  const name=document.getElementById('shopName').value.trim();
+  if(!name){toast('Shop name is required.');return;}
+  const location=document.getElementById('shopLocation').value.trim();
+  if(!location){toast('Please enter your shop location so buyers can find you.');return;}
+  const phone=document.getElementById('shopPhone').value.trim();
+  const whatsapp=document.getElementById('shopWhatsapp').value.trim();
+  const email=document.getElementById('shopEmail').value.trim();
+  if(!phone&&!whatsapp&&!email){toast('Please add at least one contact method for buyers.');return;}
+
+  const data={name,desc:document.getElementById('shopDesc').value.trim(),
+    icon:'🏪',location,phone,whatsapp,email};
+
+  const ex=shopByOwner(currentUser.id);
+  if(ex){
+    Object.assign(ex,data);
+    save(); updateUI(); closeShopModal();
+    toast('Shop updated!'); setPanel('myShop');
+  }else{
+    pendingShopData=data;
+    closeShopModal();
+    openPayModal();
+  }
+}
+
+/* ══════════════════════════════════════════
+   POST AD
+══════════════════════════════════════════ */
+function submitAd(e){
+  e.preventDefault();
+  const shop=shopByOwner(currentUser.id);
+  if(!shop){toast('Register your shop first.');openShopModal();return;}
+  if(!getUserSub(currentUser.id)){toast('Subscribe to post listings.',3500);openSubModal();return;}
+  const title=document.getElementById('adTitle').value.trim();
+  const price=parseFloat(document.getElementById('adPrice').value);
+  if(!title||isNaN(price)||price<=0){toast('Valid title and price required.');return;}
+  ads.push({
+    id:'ad_'+Date.now(),shopId:shop.id,title,price,
+    desc:document.getElementById('adDesc').value.trim(),
+    image:pendingAdImage||null,
+    cat:document.getElementById('adCat').value,
+    createdAt:new Date().toISOString()
+  });
+  pendingAdImage=null;
+  // reset upload area
+  document.getElementById('adImgArea').classList.remove('has-img');
+  document.getElementById('adImgArea').innerHTML=`<input type="file" id="adImgFile" accept="image/*" onchange="handleAdImg(event)"><i class="fas fa-camera"></i><p><strong>Click to upload a photo</strong><br>JPG, PNG, WEBP — max 5 MB</p>`;
+  save(); document.getElementById('adForm').reset();
+  toast('Listing published!'); setPanel('browse');
+}
+
+/* ══════════════════════════════════════════
+   CHAT
+══════════════════════════════════════════ */
+function cid(a,b){return[a,b].sort().join('__');}
+function getMsgs(u1,u2){return messages.filter(m=>cid(m.from,m.to)===cid(u1,u2)).sort((a,b)=>new Date(a.ts)-new Date(b.ts));}
+
+function startChat(ownerId,shopName,itemTitle){
+  if(!currentUser){toast('Sign in to chat with sellers.');openAuth('login');return;}
+  if(currentUser.id===ownerId){toast("That's your own listing!");return;}
+  currentConvWith=ownerId;
+  const seller=users.find(u=>u.id===ownerId);
+  const displayName=shopName||(seller?seller.name:'Seller');
+  document.getElementById('chatTitle').textContent='Chat — '+displayName;
+  document.getElementById('chatAvatar').textContent=initials(seller?seller.name:displayName);
+  document.getElementById('chatWidget').classList.remove('minimized');
+  document.getElementById('chatInput').placeholder=`Ask about "${itemTitle.substring(0,28)}…"`;
+  renderChatMsgs();
+  updateChatBadge();
+}
+
+function renderChatMsgs(){
+  if(!currentUser||!currentConvWith)return;
+  const msgs=getMsgs(currentUser.id,currentConvWith);
+  const body=document.getElementById('chatBody');
+  const ph=document.getElementById('chatPlaceholder');
+  if(!msgs.length){ph.style.display='flex';body.querySelectorAll('.msg-wrap').forEach(m=>m.remove());return;}
+  ph.style.display='none';
+  body.innerHTML=msgs.map(m=>{
+    const sent=m.from===currentUser.id;
+    return`<div class="msg-wrap ${sent?'sent':'received'}">
+      <div class="msg ${sent?'sent':'received'}">${esc(m.text)}</div>
+      <div class="msg-time">${new Date(m.ts).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}</div>
+    </div>`;
+  }).join('');
+  body.scrollTop=body.scrollHeight;
+}
+
+function sendChat(){
+  if(!currentUser){toast('Sign in to send messages.');return;}
+  if(!currentConvWith){toast('Open a conversation first.');return;}
+  const inp=document.getElementById('chatInput');
+  const text=inp.value.trim();
+  if(!text)return;
+  messages.push({id:'m_'+Date.now(),from:currentUser.id,to:currentConvWith,text,ts:new Date().toISOString()});
+  save(); inp.value=''; renderChatMsgs(); updateChatBadge();
+}
 function chatKeyPress(e){if(e.key==='Enter')sendChat();}
 function toggleChat(e){document.getElementById('chatWidget').classList.toggle('minimized');}
 function minimizeChat(){document.getElementById('chatWidget').classList.add('minimized');}
 function closeChat(){document.getElementById('chatWidget').classList.add('minimized');currentConvWith=null;}
-function updateChatBadge(){ if(!currentUser){const b=document.querySelector('.notif-badge');if(b)b.remove();return;} const unread=messages.filter(m=>m.to===currentUser.id&&cid(m.from,m.to)!==cid(currentUser.id,currentConvWith||'_')).length; const btn=document.getElementById('globalChatBtn'); let badge=btn.querySelector('.notif-badge'); if(unread>0){ if(!badge){badge=document.createElement('span');badge.className='notif-badge';btn.appendChild(badge);} badge.textContent=unread>9?'9+':unread; }else{if(badge)badge.remove();} }
-function openProfileModal(){ if(!currentUser)return; document.getElementById('profileName').value=currentUser.name||''; document.getElementById('profileEmail').value=currentUser.email||''; document.getElementById('profilePhone').value=currentUser.phone||''; document.getElementById('profileAvatarBig').textContent=initials(currentUser.name); document.getElementById('profileModal').classList.add('open'); }
+
+function updateChatBadge(){
+  if(!currentUser){const b=document.querySelector('.notif-badge');if(b)b.remove();return;}
+  const unread=messages.filter(m=>m.to===currentUser.id&&cid(m.from,m.to)!==cid(currentUser.id,currentConvWith||'_')).length;
+  const btn=document.getElementById('globalChatBtn');
+  let badge=btn.querySelector('.notif-badge');
+  if(unread>0){
+    if(!badge){badge=document.createElement('span');badge.className='notif-badge';btn.appendChild(badge);}
+    badge.textContent=unread>9?'9+':unread;
+  }else{if(badge)badge.remove();}
+}
+
+/* ══════════════════════════════════════════
+   PROFILE EDIT
+══════════════════════════════════════════ */
+function openProfileModal(){
+  if(!currentUser)return;
+  document.getElementById('profileName').value=currentUser.name||'';
+  document.getElementById('profileEmail').value=currentUser.email||'';
+  document.getElementById('profilePhone').value=currentUser.phone||'';
+  document.getElementById('profileAvatarBig').textContent=initials(currentUser.name);
+  document.getElementById('profileError').style.display='none';
+  document.getElementById('profileModal').classList.add('open');
+  setTimeout(()=>document.getElementById('profileName').focus(),200);
+}
 function closeProfileModal(){document.getElementById('profileModal').classList.remove('open');}
-function submitProfile(e){ e.preventDefault(); const name=document.getElementById('profileName').value.trim(); const email=document.getElementById('profileEmail').value.trim().toLowerCase(); const phone=document.getElementById('profilePhone').value.trim(); const errEl=document.getElementById('profileError'); if(!name||!email){errEl.textContent='Name and email required.';errEl.style.display='block';return;} const conflict=users.find(u=>u.email===email&&u.id!==currentUser.id); if(conflict){errEl.textContent='Email already used.';errEl.style.display='block';return;} currentUser.name=name; currentUser.email=email; currentUser.phone=phone; const idx=users.findIndex(u=>u.id===currentUser.id); if(idx>-1)users[idx]=currentUser; save(); updateUI(); closeProfileModal(); toast('Profile updated!'); }
+
+function submitProfile(e){
+  e.preventDefault();
+  const name=document.getElementById('profileName').value.trim();
+  const email=document.getElementById('profileEmail').value.trim().toLowerCase();
+  const phone=document.getElementById('profilePhone').value.trim();
+  const errEl=document.getElementById('profileError');
+  errEl.style.display='none';
+  if(!name){errEl.textContent='Please enter your name.';errEl.style.display='block';return;}
+  if(!email||!email.includes('@')){errEl.textContent='Please enter a valid email address.';errEl.style.display='block';return;}
+  // Check email not taken by another user
+  const conflict=users.find(u=>u.email===email&&u.id!==currentUser.id);
+  if(conflict){errEl.textContent='That email is already used by another account.';errEl.style.display='block';return;}
+  // Update user record
+  currentUser.name=name; currentUser.email=email; currentUser.phone=phone;
+  const idx=users.findIndex(u=>u.id===currentUser.id);
+  if(idx>-1)users[idx]=currentUser;
+  save(); updateUI(); closeProfileModal();
+  toast('Profile updated!');
+}
+
+/* ══════════════════════════════════════════
+   IMAGE UPLOAD
+══════════════════════════════════════════ */
 let pendingAdImage=null;
-function handleAdImg(e){ const file=e.target.files[0]; if(!file)return; if(file.size>5*1024*1024){toast('Image too large (max 5MB)');return;} const reader=new FileReader(); reader.onload=ev=>{ pendingAdImage=ev.target.result; const area=document.getElementById('adImgArea'); area.classList.add('has-img'); area.innerHTML=`<img class="img-preview" src="${pendingAdImage}" alt="Preview"><button type="button" class="img-remove-btn" onclick="removeAdImg()"><i class="fas fa-times"></i></button>`; }; reader.readAsDataURL(file); }
-function removeAdImg(){ pendingAdImage=null; const area=document.getElementById('adImgArea'); area.classList.remove('has-img'); area.innerHTML=`<input type="file" accept="image/*" onchange="handleAdImg(event)"><i class="fas fa-camera"></i><p><strong>Click to upload a photo</strong></p>`; }
-function toggleMobileMenu(){ document.getElementById('mobileMenu').classList.toggle('open'); updateMobileMenu(); }
-function closeMobileMenu(){ document.getElementById('mobileMenu').classList.remove('open'); }
-function updateMobileMenu(){ const authEl=document.getElementById('mobileMenuAuth'); const userEl=document.getElementById('mobileMenuUser'); if(currentUser){ authEl.style.display='none'; userEl.style.display='block'; document.getElementById('mobileUserName').textContent=currentUser.name; document.getElementById('mobileUserEmail').textContent=currentUser.email; document.getElementById('mobileUserAvatar').textContent=initials(currentUser.name); }else{ authEl.style.display='block'; userEl.style.display='none'; } }
+
+function handleAdImg(e){
+  const file=e.target.files[0];
+  if(!file)return;
+  if(file.size>5*1024*1024){toast('Image too large — max 5 MB.');return;}
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    pendingAdImage=ev.target.result;
+    const area=document.getElementById('adImgArea');
+    area.classList.add('has-img');
+    area.innerHTML=`<img class="img-preview" src="${pendingAdImage}" alt="Product preview">
+      <button type="button" class="img-remove-btn" onclick="removeAdImg()" title="Remove photo"><i class="fas fa-times"></i></button>`;
+  };
+  reader.readAsDataURL(file);
+}
+
+function removeAdImg(){
+  pendingAdImage=null;
+  const area=document.getElementById('adImgArea');
+  area.classList.remove('has-img');
+  area.innerHTML=`<input type="file" id="adImgFile" accept="image/*" onchange="handleAdImg(event)"><i class="fas fa-camera"></i><p><strong>Click to upload a photo</strong><br>JPG, PNG, WEBP — max 5 MB</p>`;
+}
+
+/* ══════════════════════════════════════════
+   MOBILE MENU
+══════════════════════════════════════════ */
+function toggleMobileMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+  updateMobileMenu();
+}
+function closeMobileMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+function updateMobileMenu(){
+  const authEl=document.getElementById('mobileMenuAuth');
+  const userEl=document.getElementById('mobileMenuUser');
+  if(currentUser){authEl.style.display='none';userEl.style.display='block';}
+  else{authEl.style.display='block';userEl.style.display='none';}
+}
+
+/* ══════════════════════════════════════════
+   WIRE UP
+══════════════════════════════════════════ */
 document.getElementById('loginBtn').onclick=()=>openAuth('login');
 document.getElementById('userPill').onclick=()=>openProfileModal();
 document.getElementById('heroShopBtn').onclick=()=>{if(!currentUser){openAuth('login');}else{openShopModal();}};
-document.getElementById('globalChatBtn').onclick=()=>{ if(!currentUser){toast('Sign in to chat.');openAuth('login');return;} document.getElementById('chatWidget').classList.toggle('minimized'); };
-document.getElementById('hamburgerBtn').onclick=()=>{ toggleMobileMenu(); };
+document.getElementById('globalChatBtn').onclick=()=>{
+  if(!currentUser){toast('Sign in to view your chats.');openAuth('login');return;}
+  document.getElementById('chatWidget').classList.toggle('minimized');
+};
+// Close modals on backdrop click
 document.getElementById('authModal').onclick=e=>{if(e.target===document.getElementById('authModal'))closeAuth();};
 document.getElementById('shopModal').onclick=e=>{if(e.target===document.getElementById('shopModal'))closeShopModal();};
 document.getElementById('payModal').onclick=e=>{if(e.target===document.getElementById('payModal'))closePayModal();};
 document.getElementById('profileModal').onclick=e=>{if(e.target===document.getElementById('profileModal'))closeProfileModal();};
 document.getElementById('confirmDeleteModal').onclick=e=>{if(e.target===document.getElementById('confirmDeleteModal'))cancelDelete();};
 document.getElementById('subModal').onclick=e=>{if(e.target===document.getElementById('subModal'))closeSubModal();};
-window.onload=()=>{ load(); updateUI(); setPanel('browse'); setInterval(()=>{ if(currentUser){ updateChatBadge(); if(currentConvWith&&!document.getElementById('chatWidget').classList.contains('minimized'))renderChatMsgs(); } },3000); };
+
+/* ══════════════════════════════════════════
+   INIT
+══════════════════════════════════════════ */
+window.onload=()=>{
+  load(); updateUI(); setPanel('browse');
+  setInterval(()=>{
+    if(currentUser){
+      updateChatBadge();
+      if(currentConvWith&&!document.getElementById('chatWidget').classList.contains('minimized'))renderChatMsgs();
+    }
+  },3000);
+};
 </script>
 </body>
 </html>
